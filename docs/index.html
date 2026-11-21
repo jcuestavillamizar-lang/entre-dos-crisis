@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entre dos crisis</title>
+<meta name="description" content="La historia de un hijo de campesinos desplazado del Catatumbo que se volvió ingeniero civil entre dos crisis económicas. Historia Económica de Colombia, Universidad de los Andes.">
+<meta property="og:title" content="Entre dos crisis">
+<meta property="og:description" content="Un hijo de campesinos desplazado del Catatumbo que se volvió ingeniero civil entre dos crisis económicas. Historia Económica de Colombia, Uniandes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d7261e'/%3E%3Ctext x='32' y='46' font-family='Impact,Arial Narrow,sans-serif' font-size='40' fill='%23ffc626' text-anchor='middle'%3E2%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cartel — franjas de color a todo lo ancho por capítulo, año gigante como portada; gráficas sobre fondo de papel */
+:root{
+  --bg:#ffffff; --fg:#111111; --muted:#555555; --line:#111111; --soft:#f2f2f0; --grid:#d9d9d6;
+  --rojo:#d7261e; --amarillo:#ffc626; --negro:#111111; --on-dark:#ffffff; --bar:#3a3a3a; --bar2:#9a9a96;
+  --f-display:"Anton", Impact, "Arial Narrow", sans-serif;
+  --f-body:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"DM Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161616; --fg:#f2f2f2; --muted:#a8a8a8; --line:#f2f2f2; --soft:#202020; --grid:#3a3a3a; --negro:#000000; --bar:#d8d8d8; --bar2:#7b7b78; --rojo:#ef4a3f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161616; --fg:#f2f2f2; --muted:#a8a8a8; --line:#f2f2f2; --soft:#202020; --grid:#3a3a3a; --negro:#000000; --bar:#d8d8d8; --bar2:#7b7b78; --rojo:#ef4a3f; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:52px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17.5px;line-height:1.62;margin:0}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.text{max-width:66ch}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+.label{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+b,strong{font-weight:700}
+
+/* NAV */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--negro);color:var(--on-dark)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--negro)}
+nav.toc .in{display:flex;gap:4px 18px;overflow-x:auto;padding-block:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;scrollbar-width:none}
+nav.toc a{text-decoration:none;opacity:.8}
+nav.toc a:hover{opacity:1;color:var(--amarillo)}
+
+/* HERO */
+.hero{background:var(--rojo);color:var(--on-dark)}
+.hero .in{padding-block:40px 0;display:grid;gap:24px}
+.hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px}
+.hero h1{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(64px,15vw,184px);line-height:.88}
+.hero h1 span{display:block;color:var(--amarillo)}
+.hero .dek{font-size:clamp(18px,2.4vw,22px);line-height:1.45;max-width:40ch;font-weight:500}
+.ticket{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:3px solid var(--on-dark);margin-top:8px}
+.ticket div{padding:14px 14px 18px 0;display:grid;gap:2px}
+.ticket div + div{border-left:3px solid var(--on-dark);padding-left:14px}
+.ticket b{font-family:var(--f-display);font-weight:400;font-size:clamp(20px,3.4vw,30px);text-transform:uppercase;line-height:1.05}
+.ticket span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+@media (max-width:560px){.ticket{grid-template-columns:1fr}.ticket div + div{border-left:0;border-top:3px solid var(--on-dark);padding-left:0}}
+
+/* PITCH */
+.pitch .in{padding-block:56px;display:grid;gap:28px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+.pitch .q{background:var(--amarillo);color:#111;padding:24px;font-weight:700;font-size:20px;line-height:1.4}
+.pitch .q .label{display:block;margin-bottom:10px;font-weight:500}
+.pitch .body{display:grid;gap:16px}
+.byline{font-family:var(--f-mono);font-size:13px;color:var(--muted);grid-column:1/-1;border-top:2px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 24px}
+@media (max-width:760px){.pitch .in{grid-template-columns:1fr}}
+
+/* Cifras */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:3px solid var(--line)}
+.stats div{padding:18px 18px 20px;display:grid;gap:4px;align-content:start}
+.stats div + div{border-left:3px solid var(--line)}
+.stats b{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,6vw,64px);line-height:1;font-variant-numeric:tabular-nums}
+.stats b.r{color:var(--rojo)}
+.stats span{font-size:14.5px;color:var(--muted);line-height:1.4}
+@media (max-width:640px){.stats{grid-template-columns:1fr}.stats div + div{border-left:0;border-top:3px solid var(--line)}}
+
+/* LÍNEA DE TIEMPO */
+.timeline{background:var(--negro);color:var(--on-dark)}
+.timeline .in{padding-block:56px;display:grid;gap:22px}
+.timeline h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(34px,6vw,60px);line-height:1}
+.timeline p{color:#d0d0d0;max-width:62ch}
+.timeline .chart-wrap{background:#1c1c1c;border:0}
+.timeline .chart{--c-fg:#f2f2f2;--c-muted:#b5b5b5;--c-grid:#3c3c3c;--c-bar:#d8d8d8}
+.timeline .chart{min-width:760px}
+@media (max-width:700px){
+  .chart-wrap:not(.nohint)::before{content:"Desliza para ver toda la gráfica →";display:block;position:sticky;left:0;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-bottom:8px}
+  .timeline .chart-wrap::before{color:#b5b5b5}
+  nav.toc .in{-webkit-mask-image:linear-gradient(to right,#000 82%,transparent);mask-image:linear-gradient(to right,#000 82%,transparent)}
+}
+
+/* CAPÍTULOS */
+.cover .in{padding-block:36px 30px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 32px;align-items:end}
+.cover .year{font-family:var(--f-display);font-size:clamp(84px,17vw,200px);line-height:.82}
+.cover .meta{display:grid;gap:8px;padding-bottom:10px}
+.cover h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(28px,4.6vw,48px);line-height:1}
+.c-rojo{background:var(--rojo);color:var(--on-dark)}
+.c-amarillo{background:var(--amarillo);color:#111}
+.c-negro{background:var(--negro);color:var(--on-dark)}
+@media (max-width:620px){.cover .in{grid-template-columns:1fr}.cover .meta{padding-bottom:0}}
+.chapter-body .in{padding-block:44px 64px;display:grid;gap:26px}
+.course{font-family:var(--f-mono);font-size:13px;color:var(--muted);border-left:4px solid var(--rojo);padding-left:12px;max-width:80ch}
+.course b{color:var(--fg);font-weight:500}
+.two{display:grid;gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+/* Figuras */
+figure{margin:0;display:grid;gap:12px}
+figure h3{font-size:19px;font-weight:800;line-height:1.25}
+figure .lead{color:var(--muted);font-size:15.5px;max-width:70ch}
+.chart-wrap{border:3px solid var(--line);background:var(--soft);padding:14px;overflow-x:auto}
+.chart{display:block;width:100%;height:auto;min-width:640px;font-family:var(--f-body);
+  --c-fg:var(--fg);--c-muted:var(--muted);--c-grid:var(--grid);--c-bar:var(--bar)}
+.chart text{fill:var(--c-fg)}
+.chart .c-ax{fill:var(--c-muted);font-size:12px}
+.chart .c-mono{font-family:var(--f-mono)}
+.chart .c-grid{stroke:var(--c-grid);stroke-width:1}
+.chart .c-zero{stroke:var(--c-fg);stroke-width:1.5}
+.chart .c-bar{fill:var(--c-bar)}
+.chart .c-bar2{fill:var(--bar2)}
+.chart .c-neg,.chart .c-hi{fill:var(--rojo)}
+.chart .c-crisis{fill:var(--rojo);opacity:.16}
+.chart .c-crisis-t{fill:var(--rojo);font-family:var(--f-display);font-size:15px;letter-spacing:.02em}
+.timeline .chart .c-crisis{opacity:.3}
+.timeline .chart .c-crisis-t{fill:#ff8f87}
+.chart .c-life{fill:var(--amarillo)}
+.chart .c-life-t{fill:var(--amarillo);font-size:12.5px;font-weight:700}
+.chart .c-hito{fill:var(--amarillo)}
+.chart .c-hito-l{stroke:var(--c-muted);stroke-dasharray:3 3}
+.chart .c-hito-t{font-size:13px;font-weight:700}
+.chart .c-val{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.chart .c-lab{font-size:14px}
+.chart .c-lab-hi{font-weight:800;fill:var(--rojo)}
+.chart .c-line{fill:none;stroke:var(--rojo);stroke-width:2.5;stroke-linejoin:round}
+.chart .c-line-b{fill:none;stroke:var(--c-fg);stroke-width:2;stroke-linejoin:round}
+.chart .c-area{fill:var(--rojo);opacity:.1}
+.chart .c-dot{fill:var(--rojo);stroke:var(--bg);stroke-width:2}
+.chart .c-dot-hit{fill:transparent;cursor:crosshair}
+.chart .c-dot-hit:hover{fill:var(--rojo);opacity:.25}
+.chart rect[class^="c-"]:hover{opacity:.82}
+.chart .c-ref{stroke:var(--c-fg);stroke-width:1.5;stroke-dasharray:5 4}
+.chart .c-gap{fill:var(--c-grid);opacity:.45}
+.chart .c-val,.chart .c-crisis-t,.chart .c-ref-t,.chart .c-lab,.chart .c-hito-t,.chart .c-life-t{paint-order:stroke;stroke:var(--soft);stroke-width:4px;stroke-linejoin:round}
+.chart .c-val,.chart .c-ref-t{stroke-width:8px}
+.timeline .chart .c-val,.timeline .chart .c-crisis-t,.timeline .chart .c-hito-t,.timeline .chart .c-life-t{stroke:#1c1c1c}
+.chart .c-dash{fill:none;stroke:var(--c-fg);stroke-width:1.5;stroke-dasharray:4 4}
+.foto{margin:0;display:grid;gap:8px;max-width:520px}
+.foto img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border:3px solid var(--line)}
+.foto figcaption{font-size:14px;color:var(--muted)}
+.fotos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.chart .c-dot-b{fill:var(--c-fg);stroke:var(--bg);stroke-width:2}
+.chart .c-ref-t{fill:var(--c-muted);font-size:12px}
+.how{font-size:15px;color:var(--muted);max-width:70ch}
+.how b{color:var(--fg)}
+
+/* mapa */
+.map .land{fill:var(--soft)}
+.map .ven{fill:var(--grid);opacity:.55}
+.map .border{fill:none;stroke:var(--c-fg);stroke-width:1.5;stroke-dasharray:6 4}
+.map .cata{fill:var(--amarillo);opacity:.28}
+.map .route{fill:none;stroke:var(--rojo);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1 9}
+.map .town{fill:var(--c-fg)}
+.map .town-hi{fill:var(--rojo);stroke:var(--bg);stroke-width:2.5}
+.map .tname{font-size:13px}
+.map .tname-hi{font-size:15px;font-weight:800}
+.map .region{fill:var(--c-muted);font-family:var(--f-mono);font-size:12px;letter-spacing:.12em}
+
+/* voz */
+blockquote{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 14px;max-width:70ch}
+blockquote::before{content:"“";font-family:var(--f-display);font-size:88px;line-height:.8;color:var(--rojo)}
+blockquote p{font-size:21px;font-style:italic;line-height:1.4}
+blockquote cite{grid-column:2;font-style:normal;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+blockquote.pendiente p{color:var(--muted)}
+
+/* DATOS */
+.sec-head{display:grid;gap:10px}
+.sec-head h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(34px,6vw,60px);line-height:1}
+.tbl{overflow-x:auto;border:3px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--grid)}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;background:var(--fg);color:var(--bg)}
+tr:last-child td{border-bottom:0}
+td code,p code,li code{font-family:var(--f-mono);font-size:.88em;background:var(--soft);padding:1px 5px}
+.steps{display:grid;gap:12px;padding-left:1.3em;margin:0;max-width:80ch}
+.refs{display:grid;gap:10px;font-size:15px;padding-left:1.3em;margin:0}
+.note{border:3px solid var(--line);padding:20px;display:grid;gap:10px;max-width:80ch;font-size:15.5px}
+details.data{font-size:14.5px;max-width:min(80ch,100%);min-width:0}
+figure,figure>*,.chapter-body .in>*,.two>*{min-width:0}
+details.data summary{cursor:pointer;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+details.data table{min-width:0;margin-top:10px}
+details.data td.n,details.data th.n{text-align:right;font-variant-numeric:tabular-nums}
+
+footer{background:var(--rojo);color:var(--on-dark)}
+footer .in{padding-block:28px 40px;font-family:var(--f-mono);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+/* familia */
+.familia{border:3px solid var(--line);background:var(--soft);padding:22px;display:grid;gap:22px;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr)}
+@media (max-width:640px){.familia{grid-template-columns:1fr}}
+.gen{display:grid;gap:10px;align-content:start}
+.fila{display:flex;flex-wrap:wrap;gap:10px}
+.p{width:44px;height:58px;border-radius:22px 22px 6px 6px;display:inline-block}
+.p-prim{background:var(--bar2)}
+.p-univ{background:var(--bar)}
+.p-trab{background:transparent;border:3px solid var(--bar2)}
+.p-papa{background:var(--rojo)}
+.g-cap{font-size:13.5px;color:var(--muted)}
+.k{display:inline-block;width:11px;height:11px;border-radius:6px;vertical-align:-1px;margin-right:4px}
+.k-univ{background:var(--bar)} .k-trab{border:2px solid var(--bar2)} .k-papa{background:var(--rojo)}
+</style>
+</head>
+<body>
+
+
+<nav class="toc" aria-label="Secciones"><div class="in">
+  <a href="#linea">Línea de tiempo</a><a href="#c1">1 · San Calixto</a><a href="#c2">2 · Cúcuta</a><a href="#c3">3 · La calle</a><a href="#c4">4 · La universidad</a><a href="#c5">5 · 2000</a><a href="#cierre">Conclusión</a><a href="#datos">Datos</a><a href="#refs">Fuentes</a>
+</div></nav>
+
+<header class="hero">
+  <div class="in">
+    <div class="hero-top">
+      <span class="label">Historia Económica de Colombia · Universidad de los Andes · 2026-2</span>
+      <span class="label">Juan Pablo Coronel Villamizar</span>
+    </div>
+    <h1>Entre dos <span>crisis</span></h1>
+    <p class="dek">La historia de un hijo de campesinos desplazado del Catatumbo que se volvió ingeniero entre dos crisis económicas, contada para entender qué tan posible era la movilidad social a través de la educación pública en la Colombia de fin de siglo.</p>
+    <div class="ticket" aria-label="Recorrido">
+      <div><span>Nace · 1974</span><b>San Calixto</b></div>
+      <div><span>Llegada · 1984</span><b>Cúcuta</b></div>
+      <div><span>Grado · 2000</span><b>Ingeniero civil</b></div>
+    </div>
+  </div>
+</header>
+
+<section class="pitch" id="pitch">
+  <div class="in">
+    <div class="body text">
+      <p>Hacia 1984, en plena crisis económica de los ochenta, un niño de 9 o 10 años llegó a Cúcuta con su familia, huyendo de la violencia en el Catatumbo. Dieciséis años después, el 7 de diciembre de 2000, se graduó como ingeniero civil de una universidad pública, con el desempleo en su punto más alto tras la peor crisis económica del siglo XX colombiano. Ese niño es mi papá.</p>
+      <p>Este sitio reconstruye su trayectoria para preguntarse qué tan excepcional fue ese camino y qué lo hizo posible. Combina su testimonio con microdatos del censo de 2018, series macroeconómicas y fuentes de la época para contrastar su experiencia con la de su generación en San Calixto, en el Catatumbo, en Norte de Santander y en el país. El hilo es económico: dos crisis que cambiaron las restricciones de un hogar pobre, una economía de frontera que vivía del bolívar y una universidad pública que hizo que estudiar fuera una apuesta posible.</p>
+    </div>
+    <p class="q"><span class="label">La pregunta</span>¿Qué tan excepcional fue que un hijo de campesinos desplazado del Catatumbo se convirtiera en profesional entre dos crisis, y qué condiciones económicas e institucionales lo hicieron posible o difícil?</p>
+    <div class="byline"><span>Periodo: 1974–2000</span><span>Lugar: San Calixto → Cúcuta, Norte de Santander</span><span>Fuentes: entrevista con mi papá · DANE · Banco Mundial · Fedesarrollo · CNMH · prensa de la época</span></div>
+  </div>
+</section>
+
+<section class="in" style="padding-block:0 56px" aria-label="Cifras principales">
+  <div class="stats">
+    <div><b class="r">6,6 %</b><span>de su generación nacida en San Calixto llegó a la universidad. En el país, 16,2 %.</span></div>
+    <div><b>67 %</b><span>de su generación en San Calixto no pasó de la primaria. Los padres de mi papá llegaron a tercero o cuarto.</span></div>
+    <div><b class="r">5 de 6</b><span>hijos de mis abuelos llegaron a la universidad, mi papá entre ellos. La única que no, la mayor, tuvo que trabajar.</span></div>
+  </div>
+</section>
+
+<section class="timeline" id="linea">
+  <div class="in">
+    <span class="label" style="color:var(--amarillo)">1980 — 2000</span>
+    <h2>Una vida al vaivén del ciclo económico</h2>
+    <p>La familia llegó a Cúcuta en medio de la crisis de los ochenta. El año en la calle y la entrada a la universidad coincidieron con los mejores años de la década. Y el grado llegó justo después de que la economía se contrajera por primera vez en décadas, con el desempleo en su punto más alto.</p>
+    <div class="chart-wrap"><svg class="chart" viewBox="0 0 860 362" role="img" aria-label="Crecimiento anual del PIB de Colombia 1980-2000 con las crisis y los hitos de la vida de mi papá" xmlns="http://www.w3.org/2000/svg"><rect class="c-crisis" x="153.4" y="80" width="141.7" height="200"><title>Crisis de los ochenta: 1982–1985</title></rect><rect class="c-crisis" x="738.6" y="80" width="68.6" height="200"><title>Crisis 1998–99: 1998–1999</title></rect><line class="c-grid" x1="78" x2="846" y1="264.2" y2="264.2"/><text class="c-ax" x="68" y="268.2" text-anchor="end">-4%</text><line class="c-grid" x1="78" x2="846" y1="232.5" y2="232.5"/><text class="c-ax" x="68" y="236.5" text-anchor="end">-2%</text><line class="c-zero" x1="78" x2="846" y1="200.8" y2="200.8"/><text class="c-ax" x="68" y="204.8" text-anchor="end">0%</text><line class="c-grid" x1="78" x2="846" y1="169.2" y2="169.2"/><text class="c-ax" x="68" y="173.2" text-anchor="end">2%</text><line class="c-grid" x1="78" x2="846" y1="137.5" y2="137.5"/><text class="c-ax" x="68" y="141.5" text-anchor="end">4%</text><line class="c-grid" x1="78" x2="846" y1="105.8" y2="105.8"/><text class="c-ax" x="68" y="109.8" text-anchor="end">6%</text><line class="c-hito-l" x1="242.6" x2="242.6" y1="38" y2="280"/><line class="c-hito-l" x1="571.7" x2="571.7" y1="38" y2="280"/><line class="c-hito-l" x1="827.7" x2="827.7" y1="38" y2="280"/><rect class="c-bar" x="85.3" y="136.1" width="22" height="64.7" rx="2"><title>1980: PIB 4,1 %</title></rect><text class="c-ax c-mono" x="96.3" y="318" text-anchor="middle">1980</text><rect class="c-bar" x="121.9" y="164.8" width="22" height="36.1" rx="2"><title>1981: PIB 2,3 %</title></rect><rect class="c-bar" x="158.4" y="185.8" width="22" height="15.0" rx="2"><title>1982: PIB 0,9 %</title></rect><rect class="c-bar" x="195.0" y="175.9" width="22" height="24.9" rx="2"><title>1983: PIB 1,6 %</title></rect><rect class="c-bar" x="231.6" y="147.8" width="22" height="53.1" rx="2"><title>1984: PIB 3,4 %</title></rect><rect class="c-bar" x="268.1" y="151.6" width="22" height="49.2" rx="2"><title>1985: PIB 3,1 %</title></rect><text class="c-ax c-mono" x="279.1" y="318" text-anchor="middle">1985</text><rect class="c-bar" x="304.7" y="108.6" width="22" height="92.2" rx="2"><title>1986: PIB 5,8 %</title></rect><rect class="c-bar" x="341.3" y="115.8" width="22" height="85.0" rx="2"><title>1987: PIB 5,4 %</title></rect><rect class="c-bar" x="377.9" y="136.5" width="22" height="64.3" rx="2"><title>1988: PIB 4,1 %</title></rect><rect class="c-bar" x="414.4" y="146.8" width="22" height="54.1" rx="2"><title>1989: PIB 3,4 %</title></rect><rect class="c-bar" x="451.0" y="133.0" width="22" height="67.8" rx="2"><title>1990: PIB 4,3 %</title></rect><text class="c-ax c-mono" x="462.0" y="318" text-anchor="middle">1990</text><rect class="c-bar" x="487.6" y="169.1" width="22" height="31.7" rx="2"><title>1991: PIB 2,0 %</title></rect><rect class="c-bar" x="524.1" y="136.8" width="22" height="64.0" rx="2"><title>1992: PIB 4,0 %</title></rect><rect class="c-bar" x="560.7" y="115.6" width="22" height="85.3" rx="2"><title>1993: PIB 5,4 %</title></rect><rect class="c-bar" x="597.3" y="108.8" width="22" height="92.1" rx="2"><title>1994: PIB 5,8 %</title></rect><rect class="c-bar" x="633.9" y="118.5" width="22" height="82.4" rx="2"><title>1995: PIB 5,2 %</title></rect><text class="c-ax c-mono" x="644.9" y="318" text-anchor="middle">1995</text><rect class="c-bar" x="670.4" y="168.3" width="22" height="32.6" rx="2"><title>1996: PIB 2,1 %</title></rect><rect class="c-bar" x="707.0" y="146.5" width="22" height="54.3" rx="2"><title>1997: PIB 3,4 %</title></rect><rect class="c-bar" x="743.6" y="191.8" width="22" height="9.0" rx="2"><title>1998: PIB 0,6 %</title></rect><rect class="c-neg" x="780.1" y="200.8" width="22" height="66.6" rx="2"><title>1999: PIB -4,2 %</title></rect><rect class="c-bar" x="816.7" y="154.5" width="22" height="46.3" rx="2"><title>2000: PIB 2,9 %</title></rect><text class="c-ax c-mono" x="827.7" y="318" text-anchor="middle">2000</text><text class="c-crisis-t" x="157.4" y="96" text-anchor="start">CRISIS DE LOS OCHENTA</text><text class="c-crisis-t" x="803.1" y="96" text-anchor="end">CRISIS 1998–99</text><text class="c-val" x="791.1" y="283.3" text-anchor="middle">−4,2 %</text><rect class="c-life" x="597.3" y="290" width="241.4" height="9" rx="2"><title>Universidad: 1994–2000</title></rect><text class="c-life-t" x="718.0" y="332" text-anchor="middle">Universidad 1994–2000</text><circle class="c-hito" cx="242.6" cy="38" r="7"/><text class="c-hito-t" x="252.6" y="24" text-anchor="start">1984 · Llega a Cúcuta</text><circle class="c-hito" cx="571.7" cy="38" r="7"/><text class="c-hito-t" x="571.7" y="24" text-anchor="middle">1993 · Vende en la calle</text><circle class="c-hito" cx="827.7" cy="38" r="7"/><text class="c-hito-t" x="817.7" y="24" text-anchor="end">Dic. 2000 · Se gradúa</text><text class="c-ax" x="38" y="358">Crecimiento anual del PIB real de Colombia (%). Fuente: Banco Mundial, WDI.</text></svg></div>
+  </div>
+</section>
+
+<!-- CAP 1 -->
+<section id="c1">
+  <div class="cover c-amarillo"><div class="in">
+    <div class="year">1974</div>
+    <div class="meta"><span class="label">Capítulo 1 · 1974–1984</span><h2>San Calixto y la salida</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <div class="two">
+      <div style="display:grid;gap:18px">
+        <p class="text">Mi papá nació el 29 de diciembre de 1974 en San Calixto, un municipio de montaña del Catatumbo. Fue el cuarto de siete hermanos. Mi abuelo era capataz en una finca ajena, de don Andrés, donde se cultivaba café, maíz y arroz; mi abuela cocinaba para los trabajadores y para la familia. En tiempo de cosecha, mi abuelo y don Jairo, un amigo suyo, llevaban la cosecha a vender a Ocaña en el camión de don Jairo. El dueño le pedía una cuota, y si mi abuelo lograba vender más caro, ganaban «un poquitico más».</p>
+        <p class="text">La vida en la vereda muestra lo poco que llegaba el Estado. No había acueducto y se usaba letrina. La luz era muy básica. La escuela quedaba en el pueblo, a hora y media a pie o en burro. El hospital del pueblo tenía una enfermera jefe y auxiliares, pero no médico: el doctor rotaba entre pueblos, y para algo grave había que ir a Ocaña, a seis horas. Mis abuelos estudiaron hasta tercero o cuarto de primaria y leían con dificultad.</p>
+        <p class="text">Desde finales de los años setenta había guerrillas en el Catatumbo. El ELN se tomó Convención en 1979, el EPL tenía presencia esporádica en San Calixto, Teorama y Hacarí, y a mediados de los ochenta llegaron las FARC. En esos años hubo muchas muertes y desplazamientos en la región (CNMH, 2018). Hacia 1984, cuando mi papá tenía 9 o 10 años, la guerrilla se metía en las fincas para obligar a la gente a sembrar los cultivos que ella imponía, y en el pueblo había muertos y enfrentamientos. La familia completa, padres e hijos, se fue a Cúcuta.</p>
+      </div>
+      <figure>
+        <h3>El recorrido</h3>
+        <div class="chart-wrap nohint"><svg class="chart map" viewBox="0 0 560 460" role="img" aria-label="Mapa esquemático del recorrido de San Calixto a Cúcuta" xmlns="http://www.w3.org/2000/svg" style="min-width:0"><rect class="land" x="0" y="0" width="560" height="460"/><polygon class="ven" points="270.2,20.0 361.3,68.5 452.3,126.6 471.8,213.8 465.3,294.6 436.0,359.2 445.8,391.5 458.7,440.0 540.0,440.0 540.0,20.0"/><polygon class="cata" points="117.5,20.0 231.3,68.5 328.8,52.3 442.5,126.6 393.8,230.0 328.8,333.4 182.5,333.4 107.7,294.6 68.8,181.5"/><polyline class="border" points="270.2,20.0 361.3,68.5 452.3,126.6 471.8,213.8 465.3,294.6 436.0,359.2 445.8,391.5 458.7,440.0"/><text class="region" x="546" y="52.3" text-anchor="end">VENEZUELA</text><text class="region" x="62.2" y="42.6">CATATUMBO</text><polyline class="route" points="196.2,197.0 166.3,220.3 148.1,250.4 191.9,300.8 263.8,323.7 328.8,300.1 380.8,333.4 423.7,361.2"/><circle class="town" cx="148.1" cy="250.4" r="3.5"/><text class="tname c-ax" x="139.1" y="254.4" text-anchor="end">Ocaña</text><circle class="town" cx="191.9" cy="300.8" r="3.5"/><text class="tname c-ax" x="182.9" y="312.8" text-anchor="end">Ábrego</text><circle class="town" cx="118.5" cy="162.2" r="3.5"/><text class="tname c-ax" x="110.5" y="154.2" text-anchor="end">El Carmen</text><circle class="town" cx="186.4" cy="256.8" r="3.5"/><text class="tname c-ax" x="194.4" y="266.8" text-anchor="start">La Playa</text><circle class="town" cx="154.2" cy="175.1" r="3.5"/><text class="tname c-ax" x="146.2" y="179.1" text-anchor="end">Convención</text><circle class="town" cx="170.8" cy="185.7" r="3.5"/><text class="tname c-ax" x="176.8" y="177.7" text-anchor="start">Teorama</text><circle class="town" cx="233.2" cy="141.2" r="3.5"/><text class="tname c-ax" x="241.2" y="145.2" text-anchor="start">El Tarra</text><circle class="town" cx="349.9" cy="120.5" r="3.5"/><text class="tname c-ax" x="357.9" y="124.5" text-anchor="start">Tibú</text><circle class="town" cx="215.3" cy="222.9" r="3.5"/><text class="tname c-ax" x="223.3" y="226.9" text-anchor="start">Hacarí</text><circle class="town" cx="328.8" cy="300.1" r="3.5"/><text class="tname c-ax" x="336.8" y="294.1" text-anchor="start">Sardinata</text><circle class="town-hi" cx="196.2" cy="197.0" r="8"/><text class="tname-hi" x="207.2" y="202.0" text-anchor="start">San Calixto</text><circle class="town-hi" cx="423.7" cy="361.2" r="8"/><text class="tname-hi" x="411.7" y="366.2" text-anchor="end">Cúcuta</text></svg></div>
+        <p class="how">Esquema de Norte de Santander con los 11 municipios del Catatumbo considerados en este trabajo (zona sombreada) y la ruta por carretera de San Calixto a Cúcuta, por Ocaña, Ábrego y Sardinata. Las posiciones de los municipios son aproximadas.</p>
+      </figure>
+    </div>
+    <blockquote><p>La escuelita quedaba en el pueblo, y como vivíamos en la finca, nos tocaba caminar una hora y media, o era en burro.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote><blockquote><p>Se metía la guerrilla a la finca a forzar a la gente a cultivar lo que cultiva la guerrilla. Prácticamente eso fue lo que nos sacó de San Calixto.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    <div class="fotos"><figure class="foto"><img src="fotos/san_calixto_pueblo.jpg" alt="San Calixto hoy: el casco urbano entre montañas, con cultivos en las laderas. Fuente: imagen de internet." loading="lazy"><figcaption>San Calixto hoy: el casco urbano entre montañas, con cultivos en las laderas. Fuente: imagen de internet.</figcaption></figure><figure class="foto"><img src="fotos/san_calixto_iglesia.jpg" alt="La plaza y la iglesia de San Calixto hoy. Fuente: Boletín de San Calixto." loading="lazy"><figcaption>La plaza y la iglesia de San Calixto hoy. Fuente: Boletín de San Calixto.</figcaption></figure></div>
+    <p class="text">¿Qué tan atrás quedaba San Calixto en educación? El censo de 2018 pregunta en qué municipio nació cada persona, así que permite seguir a la generación de mi papá (nacidos entre 1970 y 1978) desde su lugar de origen, vivan hoy donde vivan. De los nacidos en San Calixto en esos años, el <b>67 %</b> no pasó de la primaria; en el país, la cifra es 33 %. El punto de partida de mi papá estaba muy por debajo del promedio colombiano.</p>
+    <p class="text">Esa distancia no es solo la del campo frente a la ciudad. Safford y Palacios (2002) explican cómo la geografía fragmentó a Colombia en regiones mal conectadas con el centro y con un Estado débil en la periferia. El Catatumbo, montañoso, fronterizo y en disputa armada, es un caso extremo de esa fragmentación.</p>
+    <p class="course"><b>Lecturas del curso:</b> Safford y Palacios (2002).</p>
+  </div></div>
+</section>
+
+<!-- CAP 2 -->
+<section id="c2">
+  <div class="cover c-rojo"><div class="in">
+    <div class="year">84–92</div>
+    <div class="meta"><span class="label">Capítulo 2 · 1984–1992</span><h2>Una tienda en la frontera</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <p class="text">La familia llegó a Cúcuta en plena crisis de los ochenta. Esa crisis vino después de la gran bonanza cafetera de la segunda mitad de los setenta (Caballero, 1987) y tuvo dos frentes: la crisis de la deuda latinoamericana de 1982, que cerró el crédito externo, y una crisis financiera interna que obligó al Estado a intervenir varios bancos (Caballero y Urrutia, 2006; Ocampo, 2023). El ajuste de 1984 y 1985 aceleró la devaluación del peso: un dólar pasó de 101 a 194 pesos entre 1984 y 1986.</p>
+    <p class="text">Cúcuta, además, recibió un golpe propio. El 18 de febrero de 1983, el «Viernes Negro», Venezuela abandonó su tasa de cambio fija y creó un sistema de cambios diferenciales (RECADI), que duró hasta 1989. En la frontera, el bolívar pasó de valer 14,1 pesos en 1982 a 7,8 a finales de 1983; descontando la inflación de los dos países, perdió la mitad de su valor frente al peso. A mediados de los setenta, las ventas a venezolanos eran cerca de un tercio de las ventas de Cúcuta, y en 1983 las ventas del comercio de la ciudad cayeron 54 % (Barrera, 1989).</p>
+    <p class="text">La familia se instaló en el barrio Antonia Santos, en la casa de mi bisabuela, porque allí estaba la familia de mi abuela. Esa fue la razón para escoger Cúcuta y no otra ciudad. Los primeros años vivieron de los ahorros y de las deudas que mi abuelo iba a cobrar a San Calixto. Uno o dos años después, con el pago de una deuda grande, compró una casa con espacio para un local y montó una tienda. Mi abuelo tenía claro que no quería trabajar para nadie más: quería su propio negocio.</p>
+    <p class="text">La tienda funcionaba gracias a la frontera. Todo lo que vendían lo compraban en Ureña, del lado venezolano, donde «todo salía súper barato». Eso tiene una explicación macroeconómica: el mismo bolívar débil que golpeaba a los comerciantes que vivían de los compradores venezolanos abarataba, en pesos, lo que se compraba al otro lado.</p>
+    <figure>
+      <h3>Cuántos pesos valía un bolívar</h3>
+      <p class="lead">El bolívar se desplomó dos veces frente al peso: después del Viernes Negro de 1983 y entre 1994 y 1996, con la crisis bancaria venezolana. Cuando la familia llegó, en la frontera valía 8,8 pesos, casi 40 % menos que en 1982, y a finales de 1986 apenas 5,7. Son pesos corrientes: las cifras no descuentan la inflación.</p>
+      <div class="chart-wrap"><svg class="chart" viewBox="0 0 720 350" role="img" aria-label="Cuántos pesos colombianos valía un bolívar venezolano, 1980-2000" xmlns="http://www.w3.org/2000/svg"><rect class="c-gap" x="262.1" y="28" width="63.4" height="234"><title>1987–1988: tasas múltiples en Venezuela (RECADI); no hay serie comparable</title></rect><text class="c-ax" x="293.8" y="236" text-anchor="middle">Sin serie</text><text class="c-ax" x="293.8" y="251" text-anchor="middle">comparable</text><rect class="c-gap" x="483.9" y="28" width="63.4" height="234"><title>1994–1995: control de cambios en Venezuela; la tasa oficial sobrevalora el bolívar</title></rect><text class="c-ax" x="515.6" y="42" text-anchor="middle">Control de</text><text class="c-ax" x="515.6" y="57" text-anchor="middle">cambios</text><line class="c-zero" x1="56" x2="690" y1="262.0" y2="262.0"/><text class="c-ax" x="48" y="266.0" text-anchor="end">0</text><line class="c-grid" x1="56" x2="690" y1="205.0" y2="205.0"/><text class="c-ax" x="48" y="209.0" text-anchor="end">4</text><line class="c-grid" x1="56" x2="690" y1="148.0" y2="148.0"/><text class="c-ax" x="48" y="152.0" text-anchor="end">8</text><line class="c-grid" x1="56" x2="690" y1="91.0" y2="91.0"/><text class="c-ax" x="48" y="95.0" text-anchor="end">12</text><line class="c-grid" x1="56" x2="690" y1="34.0" y2="34.0"/><text class="c-ax" x="48" y="38.0" text-anchor="end">16</text><text class="c-ax c-mono" x="56.0" y="284" text-anchor="middle">1980</text><text class="c-ax c-mono" x="214.5" y="284" text-anchor="middle">1985</text><text class="c-ax c-mono" x="373.0" y="284" text-anchor="middle">1990</text><text class="c-ax c-mono" x="531.5" y="284" text-anchor="middle">1995</text><text class="c-ax c-mono" x="690.0" y="284" text-anchor="middle">2000</text><line class="c-hito-l" x1="155.2" x2="155.2" y1="45.4" y2="262"/><polyline class="c-line-b" points="56.0,114.7 87.7,91.1 119.4,60.9 151.1,151.3 182.8,137.2 214.5,161.1 246.2,180.9"/><circle class="c-dot-hit" cx="56.0" cy="114.7" r="9"><title>1980: 1 bolívar = 10,3 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="87.7" cy="91.1" r="9"><title>1981: 1 bolívar = 12,0 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="119.4" cy="60.9" r="9"><title>1982: 1 bolívar = 14,1 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="151.1" cy="151.3" r="9"><title>1983: 1 bolívar = 7,8 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="182.8" cy="137.2" r="9"><title>1984: 1 bolívar = 8,8 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="214.5" cy="161.1" r="9"><title>1985: 1 bolívar = 7,1 pesos (mercado de frontera, Fedesarrollo)</title></circle><circle class="c-dot-hit" cx="246.2" cy="180.9" r="9"><title>1986: 1 bolívar = 5,7 pesos (mercado de frontera, Fedesarrollo)</title></circle><polyline class="c-line" points="341.3,104.9 373.0,109.4 404.7,104.7 436.4,120.2 468.1,138.7 499.8,181.8 531.5,188.4 563.2,226.6 594.9,228.7 626.6,224.9 658.3,220.7 690.0,218.2"/><circle class="c-dot-hit" cx="341.3" cy="104.9" r="9"><title>1989: 1 bolívar = 11,0 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="373.0" cy="109.4" r="9"><title>1990: 1 bolívar = 10,7 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="404.7" cy="104.7" r="9"><title>1991: 1 bolívar = 11,0 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="436.4" cy="120.2" r="9"><title>1992: 1 bolívar = 9,9 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="468.1" cy="138.7" r="9"><title>1993: 1 bolívar = 8,7 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="499.8" cy="181.8" r="9"><title>1994: 1 bolívar = 5,6 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="531.5" cy="188.4" r="9"><title>1995: 1 bolívar = 5,2 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="563.2" cy="226.6" r="9"><title>1996: 1 bolívar = 2,5 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="594.9" cy="228.7" r="9"><title>1997: 1 bolívar = 2,3 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="626.6" cy="224.9" r="9"><title>1998: 1 bolívar = 2,6 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="658.3" cy="220.7" r="9"><title>1999: 1 bolívar = 2,9 pesos (tasa oficial unificada, Banco Mundial)</title></circle><circle class="c-dot-hit" cx="690.0" cy="218.2" r="9"><title>2000: 1 bolívar = 3,1 pesos (tasa oficial unificada, Banco Mundial)</title></circle><text class="c-ax" x="160.2" y="49.4">Viernes Negro (feb. 1983)</text><circle class="c-dot-b" cx="119.4" cy="60.9" r="5"/><text class="c-val" x="111.4" y="54.9" text-anchor="end">1982: 14,1</text><circle class="c-dot-b" cx="182.8" cy="137.2" r="5"/><text class="c-val" x="188.8" y="125.2" text-anchor="start">1984, la llegada: 8,8</text><circle class="c-dot-b" cx="246.2" cy="180.9" r="5"/><text class="c-val" x="246.2" y="202.9" text-anchor="middle">1986: 5,7</text><circle class="c-dot" cx="658.3" cy="220.7" r="5"/><text class="c-val" x="658.3" y="208.7" text-anchor="middle">1999: 2,9</text><text class="c-lab" x="58.0" y="202.2">Mercado de frontera</text><text class="c-lab c-lab-hi" x="347.3" y="92.9">Tasa oficial unificada</text><text class="c-ax" x="56" y="328">Pesos corrientes por bolívar. 1980–86: Fedesarrollo (1987), en Barrera (1989); 1983–86, fin de año.</text><text class="c-ax" x="56" y="344">1989–2000: tasas oficiales, promedio anual. Banco Mundial (WDI); cálculo propio.</text></svg></div>
+      <p class="how"><b>Cómo leerla:</b> la línea «Mercado de frontera» (1980–1986) es la serie de Fedesarrollo publicada por Barrera (1989); desde 1983 son valores de fin de año. La línea «Tasa oficial unificada» (1989–2000) divide la tasa oficial del peso entre la del bolívar; desde marzo de 1989 Venezuela unificó su tasa y la dejó en manos del mercado. Para 1987 y 1988 no hay una serie comparable. En 1994 y 1995 hubo control de cambios en Venezuela, así que en esos años la tasa oficial sobrevalora el bolívar. Pase el cursor sobre las líneas para ver cada año.</p>
+    </figure>
+    <blockquote><p>Todo lo que vendíamos en la tienda lo comprábamos en Ureña. En Ureña todo salía súper barato.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    
+    <p class="text">Aquí el testimonio y los datos muestran dos caras de la misma devaluación. Para el comercio que vivía de los compradores venezolanos, la caída del bolívar fue un golpe (Barrera, 1989). Para mi familia, desplazada y sin tierra ni empleo formal, el mismo choque abarató la mercancía y sostuvo la tienda: la frontera ofrecía una salida en el comercio informal de productos venezolanos. De fondo está otra idea de Safford y Palacios (2002): Norte de Santander ha estado más integrado con Venezuela que con el centro del país, así que en Cúcuta lo que pasa con el bolívar pesa tanto como lo que se decide en Bogotá.</p>
+    <p class="course"><b>Lecturas del curso:</b> Caballero (1987); Caballero y Urrutia (2006); Ocampo (2023); Safford y Palacios (2002).</p>
+  </div></div>
+</section>
+
+<!-- CAP 3 -->
+<section id="c3">
+  <div class="cover c-negro"><div class="in">
+    <div class="year" style="color:var(--amarillo)">1993</div>
+    <div class="meta"><span class="label">Capítulo 3 · 1993</span><h2>Un año en la calle</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <p class="text">Mi papá estudió en el Colegio Municipal de Bachillerato de Cúcuta, un colegio público, y fue uno de los mejores estudiantes. Desde el colegio trabajaba de vez en cuando como vendedor ambulante. Al graduarse se dedicó un año entero a vender: compraba en Venezuela cepillos, crema dental, Maltín Polar y lo que encontrara a buen precio, y lo vendía a pie, gritando, por las calles de Chapinero, Antonia Santos y Atalaya. A los venezolanos no les vendía: les compraba.</p>
+    <blockquote><p>Yo me recorría todas las calles de Chapinero, Antonia Santos, Atalaya, todo eso lo recorría andando y gritando, vendiendo. Así es que yo me rebuscaba.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote><blockquote><p>A los venezolanos yo solo les compraba. Cogía las cosas, las compraba en Venezuela y las traía para Cúcuta a venderles a los cucuteños.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    <p class="text">Recuerda que se ganaba entre 1.500 y 2.000 pesos al día. Si trabajaba 26 días al mes, eso daba entre 39.000 y 52.000 pesos mensuales: entre el 48 % y el 64 % del salario mínimo de 1993, que era de 81.510 pesos (Decreto 2061 de 1992), y sin prestaciones ni seguridad social. Esa es la cara de la informalidad: entrar es fácil, pero se gana menos. Aun así, lo ahorraba todo, porque en su casa no le cobraban la comida. En un año de trabajo pudo reunir, en una cuenta aproximada, entre 468.000 y 624.000 pesos, entre 5,7 y 7,7 salarios mínimos mensuales de la época.</p>
+    <p class="text">Estudiar tiene un costo de oportunidad: renunciar al ingreso de la calle a cambio de uno futuro e incierto. En 1993 ese costo era alto, porque la economía creció 5,4 % y el desempleo bajó a 7,8 %, el nivel más bajo de la década. Pero el auge también le permitió ahorrar, y para un hogar sin acceso a crédito eso pesó más: el año en la calle fue la forma de financiar la universidad. Su padre le decía que no estudiara, pero mi papá lo tenía decidido desde el colegio: un año vendiendo y después, ingeniería civil.</p>
+    <p class="text">Era, además, una economía que cambiaba de reglas. Con la apertura de 1990–1991 y la Constitución de 1991, Colombia redujo sus aranceles, le dio independencia al Banco de la República y amplió el gasto social (Junguito, 2016). La Ley 30 de 1992 reorganizó la educación superior, reforzó la autonomía de las universidades públicas y ató los aportes del Estado a esas universidades, como la UFPS, a crecer cada año en pesos constantes desde 1993 (artículo 86). Eso ayuda a entender que, para mi papá, la matrícula no fuera la carga principal.</p>
+    <p class="course"><b>Lecturas del curso:</b> Junguito (2016).</p>
+  </div></div>
+</section>
+
+<!-- CAP 4 -->
+<section id="c4">
+  <div class="cover c-amarillo"><div class="in">
+    <div class="year">94–00</div>
+    <div class="meta"><span class="label">Capítulo 4 · 1994–2000</span><h2>La universidad pública</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <p class="text">Mi papá sacó 380 de 400 en el ICFES, el mejor puntaje de su colegio, y entró a estudiar Ingeniería Civil en la Universidad Francisco de Paula Santander (UFPS), la universidad pública de Cúcuta, que entonces tenía prestigio en ingeniería civil. La matrícula no era la carga principal: lo caro eran las copias, los libros y los materiales. Los pagó con lo que ahorró en la calle, pero ya al año siguiente sentía que la plata se le acababa. Eso, según él, fue lo más difícil.</p>
+    <blockquote><p>La universidad pública es la que me dio todo.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote><blockquote><p>Si todo hubiera sido de pago, mis papás no tenían plata para pagármela. Me hubiera tocado no estudiar.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    
+    <p class="text">¿Qué tan raro era llegar a la universidad para alguien como él? Esta es la pregunta central del sitio, y el censo permite aproximarla.</p>
+    <figure>
+      <h3>¿Quién llegó a la universidad en la generación de mi papá?</h3>
+      <p class="lead">Porcentaje de personas nacidas entre 1970 y 1978 que alcanzaron la universidad, según dónde nacieron y adónde se fueron. Mientras más periférico y rural el origen, menor la probabilidad. Los nacidos en San Calixto están en el fondo.</p>
+      <div class="chart-wrap"><svg class="chart" viewBox="0 0 760 438" role="img" aria-label="Porcentaje de la generación de mi papá con educación universitaria según origen" xmlns="http://www.w3.org/2000/svg"><line class="c-grid" x1="300.0" x2="300.0" y1="14" y2="388"/><text class="c-ax c-mono" x="300.0" y="406" text-anchor="middle">0%</text><line class="c-grid" x1="400.0" x2="400.0" y1="14" y2="388"/><text class="c-ax c-mono" x="400.0" y="406" text-anchor="middle">10%</text><line class="c-grid" x1="500.0" x2="500.0" y1="14" y2="388"/><text class="c-ax c-mono" x="500.0" y="406" text-anchor="middle">20%</text><line class="c-grid" x1="600.0" x2="600.0" y1="14" y2="388"/><text class="c-ax c-mono" x="600.0" y="406" text-anchor="middle">30%</text><line class="c-grid" x1="700.0" x2="700.0" y1="14" y2="388"/><text class="c-ax c-mono" x="700.0" y="406" text-anchor="middle">40%</text><line class="c-ref" x1="461.8" x2="461.8" y1="14" y2="388"/><text class="c-lab" x="288" y="47.0" text-anchor="end">Colombia (total)</text><rect class="c-bar" x="300" y="29" width="161.8" height="28" rx="3"><title>Colombia (total): 16,2 % con universidad o posgrado (base: 4.716.130 personas)</title></rect><text class="c-val" x="469.8" y="48.0">16,2 %</text><text class="c-lab" x="288" y="93.0" text-anchor="end">Nacidos en Bogotá</text><rect class="c-bar" x="300" y="75" width="353.5" height="28" rx="3"><title>Nacidos en Bogotá: 35,4 % con universidad o posgrado (base: 553.637 personas)</title></rect><text class="c-val" x="661.5" y="94.0">35,4 %</text><text class="c-lab" x="288" y="139.0" text-anchor="end">Nacidos en Norte de Santander</text><rect class="c-bar" x="300" y="121" width="141.5" height="28" rx="3"><title>Nacidos en Norte de Santander: 14,1 % con universidad o posgrado (base: 146.768 personas)</title></rect><text class="c-val" x="449.5" y="140.0">14,1 %</text><text class="c-lab" x="288" y="185.0" text-anchor="end">Nacidos y residentes en Cúcuta</text><rect class="c-bar" x="300" y="167" width="148.0" height="28" rx="3"><title>Nacidos y residentes en Cúcuta: 14,8 % con universidad o posgrado (base: 35.027 personas)</title></rect><text class="c-val" x="456.0" y="186.0">14,8 %</text><text class="c-lab" x="288" y="231.0" text-anchor="end">Catatumbo: migraron a otro municipio</text><rect class="c-bar2" x="300" y="213" width="120.2" height="28" rx="3"><title>Catatumbo: migraron a otro municipio: 12,0 % con universidad o posgrado (base: 28.332 personas)</title></rect><text class="c-val" x="428.2" y="232.0">12,0 %</text><text class="c-lab" x="288" y="277.0" text-anchor="end">Catatumbo: llegaron a Cúcuta</text><rect class="c-bar2" x="300" y="259" width="95.4" height="28" rx="3"><title>Catatumbo: llegaron a Cúcuta: 9,5 % con universidad o posgrado (base: 8.617 personas)</title></rect><text class="c-val" x="403.4" y="278.0">9,5 %</text><text class="c-lab" x="288" y="323.0" text-anchor="end">Catatumbo: se quedaron</text><rect class="c-bar2" x="300" y="305" width="85.6" height="28" rx="3"><title>Catatumbo: se quedaron: 8,6 % con universidad o posgrado (base: 18.276 personas)</title></rect><text class="c-val" x="393.6" y="324.0">8,6 %</text><text class="c-lab c-lab-hi" x="288" y="369.0" text-anchor="end">Nacidos en San Calixto</text><rect class="c-hi" x="300" y="351" width="66.5" height="28" rx="3"><title>Nacidos en San Calixto: 6,6 % con universidad o posgrado (base: 2.001 personas)</title></rect><text class="c-val" x="374.5" y="370.0">6,6 %</text><text class="c-ref-t" x="467.8" y="382">Promedio nacional: 16,2 %</text><text class="c-ax" x="10" y="432">% de la cohorte de 40 a 48 años (nacidos ~1970–1978) con universidad o posgrado. Fuente: DANE, CNPV 2018; cálculo propio.</text></svg></div>
+      <p class="how"><b>Cómo leerla:</b> la línea punteada marca el promedio nacional (16,2 %). Los tres grupos que empiezan con «Catatumbo» reúnen a los nacidos en sus 11 municipios, según dónde vivían en 2018. Mi papá pertenece a dos grupos a la vez: nació en San Calixto (6,6 %) y migró a Cúcuta (9,5 %). «Llegar a la universidad» incluye a quienes la empezaron sin terminarla, así que graduarse, como él, es todavía menos frecuente.</p>
+      <details class='data'><summary>Ver los datos de la gráfica</summary><div class='tbl'><table><thead><tr><th>Grupo (nacidos ~1970–1978)</th><th class='n'>Personas</th><th class='n'>Universidad o posgrado</th><th class='n'>Cualquier educación superior</th><th class='n'>Primaria o menos</th></tr></thead><tbody><tr><td>Colombia (total)</td><td class='n'>4.716.130</td><td class='n'>16,2 %</td><td class='n'>26,0 %</td><td class='n'>32,9 %</td></tr><tr><td>Nacidos en Bogotá</td><td class='n'>553.637</td><td class='n'>35,4 %</td><td class='n'>50,6 %</td><td class='n'>9,8 %</td></tr><tr><td>Nacidos en Norte de Santander</td><td class='n'>146.768</td><td class='n'>14,1 %</td><td class='n'>21,0 %</td><td class='n'>42,3 %</td></tr><tr><td>Nacidos y residentes en Cúcuta</td><td class='n'>35.027</td><td class='n'>14,8 %</td><td class='n'>22,3 %</td><td class='n'>28,3 %</td></tr><tr><td>Catatumbo: migraron a otro municipio</td><td class='n'>28.332</td><td class='n'>12,0 %</td><td class='n'>17,6 %</td><td class='n'>52,6 %</td></tr><tr><td>Catatumbo: llegaron a Cúcuta</td><td class='n'>8.617</td><td class='n'>9,5 %</td><td class='n'>14,4 %</td><td class='n'>51,2 %</td></tr><tr><td>Catatumbo: se quedaron</td><td class='n'>18.276</td><td class='n'>8,6 %</td><td class='n'>12,7 %</td><td class='n'>60,7 %</td></tr><tr><td>Nacidos en San Calixto</td><td class='n'>2.001</td><td class='n'>6,6 %</td><td class='n'>10,5 %</td><td class='n'>67,4 %</td></tr></tbody></table></div><p class='how'>«Cualquier educación superior» suma técnica, tecnológica, universitaria y posgrado. Los porcentajes se calculan sobre quienes informaron su nivel educativo. Fuente: DANE, CNPV 2018; cálculo propio.</p></details>
+    </figure>
+    <div style="display:grid;gap:40px">
+      <figure>
+        <h3>Dentro del Catatumbo</h3>
+        <p class="lead">Solo Ocaña, el centro urbano de la provincia, supera el promedio departamental. En El Tarra y Hacarí, dos de los municipios más rurales y afectados por el conflicto, menos de 4 de cada 100 llegaron a la universidad.</p>
+        <div class="chart-wrap"><svg class="chart" viewBox="0 0 720 418" role="img" aria-label="Educación universitaria de la generación de mi papá en los municipios del Catatumbo" xmlns="http://www.w3.org/2000/svg"><line class="c-grid" x1="120.0" x2="120.0" y1="12" y2="368"/><text class="c-ax c-mono" x="120.0" y="386" text-anchor="middle">0%</text><line class="c-grid" x1="224.0" x2="224.0" y1="12" y2="368"/><text class="c-ax c-mono" x="224.0" y="386" text-anchor="middle">5%</text><line class="c-grid" x1="328.0" x2="328.0" y1="12" y2="368"/><text class="c-ax c-mono" x="328.0" y="386" text-anchor="middle">10%</text><line class="c-grid" x1="432.0" x2="432.0" y1="12" y2="368"/><text class="c-ax c-mono" x="432.0" y="386" text-anchor="middle">15%</text><line class="c-grid" x1="536.0" x2="536.0" y1="12" y2="368"/><text class="c-ax c-mono" x="536.0" y="386" text-anchor="middle">20%</text><line class="c-grid" x1="640.0" x2="640.0" y1="12" y2="368"/><text class="c-ax c-mono" x="640.0" y="386" text-anchor="middle">25%</text><line class="c-ref" x1="414.3" x2="414.3" y1="12" y2="368"/><text class="c-lab" x="110" y="36.0" text-anchor="end">Ocaña</text><rect class="c-bar2" x="120" y="22" width="394.0" height="20" rx="3"><title>Ocaña: 18,9 % (base: 13585 personas)</title></rect><text class="c-val" x="520.0" y="36.0">18,9 %</text><text class="c-lab" x="110" y="68.0" text-anchor="end">Convención</text><rect class="c-bar2" x="120" y="54" width="249.6" height="20" rx="3"><title>Convención: 12,0 % (base: 4233 personas)</title></rect><text class="c-val" x="375.6" y="68.0">12,0 %</text><text class="c-lab" x="110" y="100.0" text-anchor="end">Sardinata</text><rect class="c-bar2" x="120" y="86" width="158.2" height="20" rx="3"><title>Sardinata: 7,6 % (base: 4708 personas)</title></rect><text class="c-val" x="284.2" y="100.0">7,6 %</text><text class="c-lab" x="110" y="132.0" text-anchor="end">Ábrego</text><rect class="c-bar2" x="120" y="118" width="152.5" height="20" rx="3"><title>Ábrego: 7,3 % (base: 5577 personas)</title></rect><text class="c-val" x="278.5" y="132.0">7,3 %</text><text class="c-lab" x="110" y="164.0" text-anchor="end">Tibú</text><rect class="c-bar2" x="120" y="150" width="149.6" height="20" rx="3"><title>Tibú: 7,2 % (base: 5838 personas)</title></rect><text class="c-val" x="275.6" y="164.0">7,2 %</text><text class="c-lab" x="110" y="196.0" text-anchor="end">El Carmen</text><rect class="c-bar2" x="120" y="182" width="138.5" height="20" rx="3"><title>El Carmen: 6,7 % (base: 3335 personas)</title></rect><text class="c-val" x="264.5" y="196.0">6,7 %</text><text class="c-lab c-lab-hi" x="110" y="228.0" text-anchor="end">San Calixto</text><rect class="c-hi" x="120" y="214" width="138.3" height="20" rx="3"><title>San Calixto: 6,6 % (base: 2001 personas)</title></rect><text class="c-val" x="264.3" y="228.0">6,6 %</text><text class="c-lab" x="110" y="260.0" text-anchor="end">Teorama</text><rect class="c-bar2" x="120" y="246" width="135.9" height="20" rx="3"><title>Teorama: 6,5 % (base: 2158 personas)</title></rect><text class="c-val" x="261.9" y="260.0">6,5 %</text><text class="c-lab" x="110" y="292.0" text-anchor="end">La Playa</text><rect class="c-bar2" x="120" y="278" width="98.8" height="20" rx="3"><title>La Playa: 4,7 % (base: 2085 personas)</title></rect><text class="c-val" x="224.8" y="292.0">4,7 %</text><text class="c-lab" x="110" y="324.0" text-anchor="end">Hacarí</text><rect class="c-bar2" x="120" y="310" width="77.6" height="20" rx="3"><title>Hacarí: 3,7 % (base: 1770 personas)</title></rect><text class="c-val" x="203.6" y="324.0">3,7 %</text><text class="c-lab" x="110" y="356.0" text-anchor="end">El Tarra</text><rect class="c-bar2" x="120" y="342" width="63.1" height="20" rx="3"><title>El Tarra: 3,0 % (base: 1318 personas)</title></rect><text class="c-val" x="189.1" y="356.0">3,0 %</text><text class="c-ref-t" x="419.3" y="362">Norte de Santander: 14,1 %</text><text class="c-ax" x="10" y="412">% con universidad o posgrado, nacidos ~1970–1978 en cada municipio. Fuente: DANE, CNPV 2018; cálculo propio.</text></svg></div>
+      </figure>
+      <figure>
+        <h3>Antes y después de su generación</h3>
+        <p class="lead">El acceso a la universidad creció generación tras generación. Desde los nacidos a mediados de los años cincuenta, Norte de Santander quedó por debajo del promedio del país, y la brecha fue más amplia justo en el grupo de mi papá (nacidos entre 1974 y 1978): 14,9 % frente a 17,6 %.</p>
+        <div class="chart-wrap"><svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Porcentaje con universidad por generación en Colombia y en Norte de Santander" xmlns="http://www.w3.org/2000/svg"><rect class="c-crisis" x="388.4" y="24" width="60.4" height="226"><title>Grupo de mi papá: nacidos 1974–1978</title></rect><text class="c-crisis-t" x="418.7" y="38" text-anchor="middle">Su grupo</text><line class="c-zero" x1="56" x2="600" y1="250.0" y2="250.0"/><text class="c-ax" x="48" y="254.0" text-anchor="end">0%</text><line class="c-grid" x1="56" x2="600" y1="204.8" y2="204.8"/><text class="c-ax" x="48" y="208.8" text-anchor="end">5%</text><line class="c-grid" x1="56" x2="600" y1="159.6" y2="159.6"/><text class="c-ax" x="48" y="163.6" text-anchor="end">10%</text><line class="c-grid" x1="56" x2="600" y1="114.4" y2="114.4"/><text class="c-ax" x="48" y="118.4" text-anchor="end">15%</text><line class="c-grid" x1="56" x2="600" y1="69.2" y2="69.2"/><text class="c-ax" x="48" y="73.2" text-anchor="end">20%</text><line class="c-grid" x1="56" x2="600" y1="24.0" y2="24.0"/><text class="c-ax" x="48" y="28.0" text-anchor="end">25%</text><text class="c-ax c-mono" x="56.0" y="270" text-anchor="middle">1944–48</text><text class="c-ax c-mono" x="176.9" y="270" text-anchor="middle">1954–58</text><text class="c-ax c-mono" x="297.8" y="270" text-anchor="middle">1964–68</text><text class="c-ax c-mono" x="418.7" y="270" text-anchor="middle">1974–78</text><text class="c-ax c-mono" x="539.6" y="270" text-anchor="middle">1984–88</text><polyline class="c-line-b" points="56.0,173.9 116.4,152.0 176.9,137.7 237.3,134.7 297.8,128.9 358.2,117.4 418.7,91.2 479.1,68.8 539.6,55.6 600.0,44.5"/><circle class="c-dot-hit" cx="56.0" cy="173.9" r="8"><title>Colombia, nacidos 1944–48: 8,4 %</title></circle><circle class="c-dot-hit" cx="116.4" cy="152.0" r="8"><title>Colombia, nacidos 1949–53: 10,8 %</title></circle><circle class="c-dot-hit" cx="176.9" cy="137.7" r="8"><title>Colombia, nacidos 1954–58: 12,4 %</title></circle><circle class="c-dot-hit" cx="237.3" cy="134.7" r="8"><title>Colombia, nacidos 1959–63: 12,8 %</title></circle><circle class="c-dot-hit" cx="297.8" cy="128.9" r="8"><title>Colombia, nacidos 1964–68: 13,4 %</title></circle><circle class="c-dot-hit" cx="358.2" cy="117.4" r="8"><title>Colombia, nacidos 1969–73: 14,7 %</title></circle><circle class="c-dot-hit" cx="418.7" cy="91.2" r="8"><title>Colombia, nacidos 1974–78: 17,6 %</title></circle><circle class="c-dot-hit" cx="479.1" cy="68.8" r="8"><title>Colombia, nacidos 1979–83: 20,0 %</title></circle><circle class="c-dot-hit" cx="539.6" cy="55.6" r="8"><title>Colombia, nacidos 1984–88: 21,5 %</title></circle><circle class="c-dot-hit" cx="600.0" cy="44.5" r="8"><title>Colombia, nacidos 1989–93: 22,7 %</title></circle><text class="c-lab" x="608.0" y="40.5">Colombia</text><polyline class="c-line" points="56.0,175.2 116.4,151.6 176.9,141.7 237.3,142.2 297.8,137.8 358.2,131.5 418.7,115.0 479.1,90.6 539.6,72.6 600.0,52.8"/><circle class="c-dot-hit" cx="56.0" cy="175.2" r="8"><title>Nacidos en Norte de Santander, nacidos 1944–48: 8,3 %</title></circle><circle class="c-dot-hit" cx="116.4" cy="151.6" r="8"><title>Nacidos en Norte de Santander, nacidos 1949–53: 10,9 %</title></circle><circle class="c-dot-hit" cx="176.9" cy="141.7" r="8"><title>Nacidos en Norte de Santander, nacidos 1954–58: 12,0 %</title></circle><circle class="c-dot-hit" cx="237.3" cy="142.2" r="8"><title>Nacidos en Norte de Santander, nacidos 1959–63: 11,9 %</title></circle><circle class="c-dot-hit" cx="297.8" cy="137.8" r="8"><title>Nacidos en Norte de Santander, nacidos 1964–68: 12,4 %</title></circle><circle class="c-dot-hit" cx="358.2" cy="131.5" r="8"><title>Nacidos en Norte de Santander, nacidos 1969–73: 13,1 %</title></circle><circle class="c-dot-hit" cx="418.7" cy="115.0" r="8"><title>Nacidos en Norte de Santander, nacidos 1974–78: 14,9 %</title></circle><circle class="c-dot-hit" cx="479.1" cy="90.6" r="8"><title>Nacidos en Norte de Santander, nacidos 1979–83: 17,6 %</title></circle><circle class="c-dot-hit" cx="539.6" cy="72.6" r="8"><title>Nacidos en Norte de Santander, nacidos 1984–88: 19,6 %</title></circle><circle class="c-dot-hit" cx="600.0" cy="52.8" r="8"><title>Nacidos en Norte de Santander, nacidos 1989–93: 21,8 %</title></circle><text class="c-lab" x="608.0" y="66.8">Norte de S.</text><text class="c-ax" x="56" y="290">Año de nacimiento →</text><text class="c-ax" x="56" y="314">% con universidad o posgrado, por año de nacimiento. Fuente: DANE, CNPV 2018; cálculo propio.</text></svg></div>
+      </figure>
+    </div>
+    <p class="text">Los datos muestran tres cosas. Primero, el origen pesa: nacer en San Calixto reducía a menos de la mitad la probabilidad de llegar a la universidad frente al promedio del país. Segundo, migrar se asocia con más educación: los del Catatumbo que salieron de su municipio llegaron más a la universidad (12 %) que los que se quedaron (8,6 %), aunque para los que llegaron a Cúcuta, como él, la diferencia es pequeña (9,5 %). Puede ser porque la ciudad da acceso a colegios y universidades, o porque los que migran ya eran distintos; los datos no permiten separar las dos explicaciones. Tercero, aun después de migrar, los del Catatumbo que llegaron a Cúcuta quedaron por debajo de los nacidos en la ciudad (9,5 % frente a 14,8 %). Llegar a la ciudad abría la puerta, pero no la abría para todos por igual.</p>
+    <p class="text">Detrás del promedio nacional, cuya mejora de largo plazo documentan Jaramillo-Echeverri, Meisel-Roca y Ramírez-Giraldo (2019), hay diferencias regionales grandes. Para su generación, nacer en Bogotá multiplicaba por más de cinco la probabilidad de llegar a la universidad frente a nacer en San Calixto (35,4 % frente a 6,6 %).</p>
+    <figure>
+      <h3>Una familia contra la estadística</h3>
+      <p class="lead">De los seis hermanos que sobrevivieron, cinco llegaron a la universidad. Con las tasas de su generación (6,6 % para los nacidos en San Calixto, 9,5 % para los del Catatumbo que llegaron a Cúcuta), lo esperable en seis hermanos habría sido menos de uno.</p>
+      <div class="familia" role="img" aria-label="Dos generaciones: abuelos con tercero o cuarto de primaria; cinco de seis hijos con universidad">
+        <div class="gen"><span class="label">Mis abuelos</span>
+          <div class="fila"><span class="p p-prim" title="Abuelo: tercero o cuarto de primaria"></span><span class="p p-prim" title="Abuela: tercero o cuarto de primaria"></span></div>
+          <span class="g-cap">Tercero o cuarto de primaria</span></div>
+        <div class="gen"><span class="label">Sus hijos, en orden de nacimiento</span>
+          <div class="fila"><span class="p p-trab" title="La mayor: tuvo que trabajar"></span><span class="p p-univ" title="Universidad"></span><span class="p p-univ" title="Universidad"></span><span class="p p-univ p-papa" title="Mi papá: ingeniero civil"></span><span class="p p-univ" title="Universidad"></span><span class="p p-univ" title="Universidad"></span></div>
+          <span class="g-cap"><i class="k k-univ"></i>Universidad &nbsp; <i class="k k-trab"></i>Trabajó desde joven &nbsp; <i class="k k-papa"></i>Mi papá</span></div>
+      </div>
+      <p class="how">Fuente: entrevista con mi papá. Un séptimo hermano murió a los dos años.</p>
+    </figure>
+    <p class="text">La historia de la familia sugiere un mecanismo que los datos agregados no ven. La hermana mayor no estudió: tuvo que trabajar y encargarse de muchas cosas. Según mi papá, ver lo difícil que fue para ella, y ver que al hijo de un compañero de mi abuelo le fue muy bien estudiando ingeniería civil, convenció a los menores de que el estudio sí daba resultado. El orden de nacimiento y el ejemplo cercano también pesaron.</p>
+    <blockquote><p>Mi hermana mayor no estudió, se dedicó a trabajar. Viéndola a ella vimos lo difícil que era. Entonces de ahí para abajo todos empezamos a estudiar.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    <p class="course"><b>Lecturas del curso:</b> Jaramillo-Echeverri, Meisel-Roca y Ramírez-Giraldo (2019); Safford y Palacios (2002). Marco legal: Ley 30 de 1992.</p>
+  </div></div>
+</section>
+
+<!-- CAP 5 -->
+<section id="c5">
+  <div class="cover c-rojo"><div class="in">
+    <div class="year">2000</div>
+    <div class="meta"><span class="label">Capítulo 5 · 2000–2001</span><h2>Graduarse después de la peor crisis del siglo</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <p class="text">Mi papá se graduó el 7 de diciembre de 2000. Un año antes, el PIB de Colombia había caído 4,2 %, la primera contracción en décadas. La construcción, justo el campo de un ingeniero civil, fue uno de los sectores más golpeados: según las cifras preliminares del DANE, cayó 24,3 % en 1999, y la construcción de vivienda, 36,4 % (<i>El Tiempo</i>, 26 de abril de 2000).</p>
+    <p class="text">La crisis tuvo muchos actores. A mediados de los noventa, hogares, empresas y Gobierno se endeudaron con fuerza. Cuando las crisis asiática y rusa cerraron el financiamiento externo en 1998, el Banco de la República subió las tasas de interés para defender el peso, y las cuotas de los créditos de vivienda en UPAC, atadas a esas tasas, se dispararon. Muchas familias no pudieron pagar, los bancos dejaron de prestar y la construcción se paralizó (Urrutia y Llano, 2012; Ocampo, 2023).</p>
+    <figure>
+      <h3>El mercado laboral que lo recibió</h3>
+      <p class="lead">El desempleo en Colombia pasó de 7,8 % en 1993, el año en que vendía en la calle, a 20,5 % en 2000, el año de su grado. En Cúcuta subió casi igual: en junio de 2000 llegó a 19,9 % (cifra provisional), la tasa más alta registrada hasta entonces en la ciudad.</p>
+      <div class="chart-wrap"><svg class="chart" viewBox="0 0 720 320" role="img" aria-label="Tasa de desempleo en Colombia 1991-2000 y en Cúcuta 1998-2000" xmlns="http://www.w3.org/2000/svg"><line class="c-zero" x1="56" x2="690" y1="250.0" y2="250.0"/><text class="c-ax" x="48" y="254.0" text-anchor="end">0%</text><line class="c-grid" x1="56" x2="690" y1="200.0" y2="200.0"/><text class="c-ax" x="48" y="204.0" text-anchor="end">5%</text><line class="c-grid" x1="56" x2="690" y1="150.0" y2="150.0"/><text class="c-ax" x="48" y="154.0" text-anchor="end">10%</text><line class="c-grid" x1="56" x2="690" y1="100.0" y2="100.0"/><text class="c-ax" x="48" y="104.0" text-anchor="end">15%</text><line class="c-grid" x1="56" x2="690" y1="50.0" y2="50.0"/><text class="c-ax" x="48" y="54.0" text-anchor="end">20%</text><text class="c-ax c-mono" x="87.7" y="272" text-anchor="middle">1991</text><text class="c-ax c-mono" x="151.1" y="272" text-anchor="middle">’92</text><text class="c-ax c-mono" x="214.5" y="272" text-anchor="middle">’93</text><text class="c-ax c-mono" x="277.9" y="272" text-anchor="middle">’94</text><text class="c-ax c-mono" x="341.3" y="272" text-anchor="middle">’95</text><text class="c-ax c-mono" x="404.7" y="272" text-anchor="middle">’96</text><text class="c-ax c-mono" x="468.1" y="272" text-anchor="middle">’97</text><text class="c-ax c-mono" x="531.5" y="272" text-anchor="middle">’98</text><text class="c-ax c-mono" x="594.9" y="272" text-anchor="middle">’99</text><text class="c-ax c-mono" x="658.3" y="272" text-anchor="middle">2000</text><rect class="c-life" x="246.2" y="246" width="443.8" height="4"><title>Años en la universidad</title></rect><polyline class="c-line" points="87.7,148.8 151.1,155.6 214.5,172.0 277.9,167.5 341.3,162.8 404.7,131.9 468.1,128.6 531.5,100.0 594.9,49.4 658.3,44.8"/><circle class="c-dot-hit" cx="87.7" cy="148.8" r="9"><title>Colombia, 1991: 10,1 %</title></circle><circle class="c-dot-hit" cx="151.1" cy="155.6" r="9"><title>Colombia, 1992: 9,4 %</title></circle><circle class="c-dot-hit" cx="214.5" cy="172.0" r="9"><title>Colombia, 1993: 7,8 %</title></circle><circle class="c-dot-hit" cx="277.9" cy="167.5" r="9"><title>Colombia, 1994: 8,2 %</title></circle><circle class="c-dot-hit" cx="341.3" cy="162.8" r="9"><title>Colombia, 1995: 8,7 %</title></circle><circle class="c-dot-hit" cx="404.7" cy="131.9" r="9"><title>Colombia, 1996: 11,8 %</title></circle><circle class="c-dot-hit" cx="468.1" cy="128.6" r="9"><title>Colombia, 1997: 12,1 %</title></circle><circle class="c-dot-hit" cx="531.5" cy="100.0" r="9"><title>Colombia, 1998: 15,0 %</title></circle><circle class="c-dot-hit" cx="594.9" cy="49.4" r="9"><title>Colombia, 1999: 20,1 %</title></circle><circle class="c-dot-hit" cx="658.3" cy="44.8" r="9"><title>Colombia, 2000: 20,5 %</title></circle><polyline class="c-dash" points="531.5,113.0 563.2,96.0 594.9,63.0 626.6,106.0 658.3,51.0"/><circle class="c-dot-b" cx="531.5" cy="113.0" r="4.5"><title>Cúcuta, jun-1998: 13,7 %</title></circle><circle class="c-dot-b" cx="563.2" cy="96.0" r="4.5"><title>Cúcuta, dic-1998: 15,4 %</title></circle><circle class="c-dot-b" cx="594.9" cy="63.0" r="4.5"><title>Cúcuta, jun-1999: 18,7 %</title></circle><circle class="c-dot-b" cx="626.6" cy="106.0" r="4.5"><title>Cúcuta, dic-1999: 14,4 %</title></circle><circle class="c-dot-b" cx="658.3" cy="51.0" r="4.5"><title>Cúcuta, jun-2000: 19,9 %</title></circle><text class="c-lab" x="523.5" y="117.0" text-anchor="end">Cúcuta</text><text class="c-lab c-lab-hi" x="398.7" y="119.9" text-anchor="end">Colombia</text><circle class="c-dot" cx="214.5" cy="172.0" r="5"/><text class="c-val" x="224.5" y="190.0" text-anchor="start">1993: 7,8 %</text><circle class="c-dot" cx="658.3" cy="44.8" r="5"/><text class="c-val" x="646.3" y="34.8" text-anchor="end">2000: 20,5 %</text><text class="c-ax" x="56" y="298">Colombia: tasa anual, estimación de la OIT (Banco Mundial, WDI).</text><text class="c-ax" x="56" y="314">Cúcuta: área metropolitana, junio y diciembre; jun. 2000 provisional (DANE y Banco de la República, ICER).</text></svg></div>
+      <p class="how"><b>Cómo leerla:</b> la línea roja es la tasa anual de Colombia (estimación de la OIT publicada por el Banco Mundial). Los puntos marcados «Cúcuta» son las tasas semestrales del área metropolitana de Cúcuta (DANE y Banco de la República, ICER Norte de Santander, 2000). La franja amarilla sobre el eje marca sus años en la universidad.</p>
+    </figure>
+    <p class="text">Aquí la memoria y los datos no coinciden del todo. Mi papá recuerda que en Cúcuta «había bastante trabajo, había bastantes obras», y que le ofrecieron varios proyectos, aunque al final no lo contrataron en ninguno. Los datos dicen que, a mediados de 2000, uno de cada cinco cucuteños de la fuerza laboral estaba desempleado. Las dos cosas pueden ser ciertas: un ingeniero recién graduado no enfrentaba el mismo mercado que el promedio, y en 2001, cuando buscaba trabajo, el área aprobada para construir en Cúcuta en el segundo trimestre fue 22 % mayor que un año antes, aunque desde un nivel muy bajo (11.676 m²). Eso encaja con su recuerdo de que la ciudad «se estaba desarrollando un poquito» (ICER Norte de Santander, 2001).</p>
+    <p class="text">Aun así, el camino que funcionó no fue el de la construcción. Tras unos meses de espera, consiguió empleo en la Aeronáutica Civil gracias a un contacto político: él era líder social en su barrio. Allí sigue trabajando hoy.</p>
+    <blockquote><p>Me tocó esperar unos meses. Lo conseguí por política, con un señor con el que trabajaba. Yo era líder social en Chapinero, entonces él me ayudó a meterme a la Aeronáutica Civil.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    <p class="text">En un mercado laboral deprimido, las redes personales y el empleo público fueron, en su caso, la salida. El título lo hizo elegible; la red le dio la oportunidad.</p>
+    <p class="course"><b>Lecturas del curso:</b> Urrutia y Llano (2012); Ocampo (2023).</p>
+  </div></div>
+</section>
+
+<!-- CIERRE -->
+<section id="cierre">
+  <div class="cover c-negro"><div class="in">
+    <div class="year" style="color:var(--amarillo)">¿?</div>
+    <div class="meta"><span class="label">Conclusión</span><h2>¿Excepción o regla?</h2></div>
+  </div></div>
+  <div class="chapter-body"><div class="in">
+    <p class="text"><b>Excepción.</b> La trayectoria de mi papá fue excepcional para su origen. Solo 6,6 de cada 100 personas de su generación nacidas en San Calixto llegaron a la universidad, y dos de cada tres no pasaron de la primaria. Pero no fue un milagro aislado: el testimonio y los datos permiten ver qué lo hizo difícil y qué lo hizo posible.</p>
+    <p class="text"><b>Lo que lo hizo difícil.</b> Nació en una vereda sin acueducto ni médico, a hora y media de la escuela, en un hogar donde los padres habían llegado a tercero o cuarto de primaria. La violencia sacó a la familia del campo, y la ciudad que la recibió vivía su propia crisis por la caída del bolívar. Su padre prefería que no estudiara, y los ahorros de la calle pronto empezaron a acabarse. Cuando por fin se graduó, el desempleo estaba en su punto más alto.</p>
+    <p class="text"><b>Lo que lo hizo posible.</b> Primero, la migración: salir del Catatumbo, aunque fuera forzado, lo puso cerca de colegios, de una universidad y de la frontera. Segundo, la economía de frontera: el bolívar barato sostuvo la tienda familiar y le dio un negocio informal con el cual ahorrar. Tercero, la universidad pública: con una matrícula baja, sus ahorros alcanzaron para empezar; en sus palabras, sin ella no habría estudiado. Cuarto, el momento: su año en la calle coincidió con el desempleo más bajo de la década. Un auge encarece estudiar, porque sube lo que se deja de ganar, pero a un hogar sin crédito le permite ahorrar, y en su caso pesó más lo segundo. Quinto, su desempeño: el mejor ICFES de su colegio. Y al final, una red social que le ayudó a conseguir empleo en un mercado laboral deprimido.</p>
+    <p class="text">El caso de sus hermanos muestra que no se trata solo de talento individual. Cinco de seis llegaron a la universidad, algo casi imposible según la estadística de su origen. Cuando un hogar reúne esas condiciones, el resultado se multiplica entre hermanos, aunque no para todos: la mayor, que tuvo que trabajar y encargarse de muchas cosas, no tuvo esa oportunidad.</p>
+    <p class="text">Jaramillo-Echeverri, Meisel-Roca y Ramírez-Giraldo (2019) muestran que el nivel de vida de los colombianos mejoró mucho durante el siglo XX. Esta historia muestra cómo se ve esa mejora desde un hogar concreto: llegó, pero de manera desigual entre regiones y generaciones, y para una familia campesina del Catatumbo dependió de llegar a la ciudad y de que existiera una universidad pública al alcance.</p>
+    <p class="text">Mi papá lo ve desde otro ángulo: entre sus paisanos, el camino más común para salir adelante no fue el estudio.</p>
+    <blockquote><p>Hay muchos paisanos de San Calixto que se fueron para Cúcuta y les ha ido bien, pero no porque hayan estudiado, sino porque […] montaron algún negocio y les fue medio bien.</p><cite>Mi papá, entrevista de noviembre de 2026</cite></blockquote>
+    <p class="text">Los datos le dan la razón: solo el 9,5 % de los nacidos en el Catatumbo de su generación que viven en Cúcuta pasó por la universidad.</p>
+  </div></div>
+</section>
+
+<!-- DATOS -->
+<section id="datos">
+  <div class="chapter-body"><div class="in" style="border-top:3px solid var(--line)">
+    <div class="sec-head" style="padding-top:20px">
+      <span class="label" style="color:var(--rojo)">Metodología</span>
+      <h2>Sobre los datos</h2>
+      <p class="text" style="color:var(--muted)">Los resultados cuantitativos del sitio son producto de consulta, limpieza y procesamiento propios. El repositorio del proyecto incluye los datos originales, las consultas exactas al censo y el código que produce cada gráfica.</p>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Fuente</th><th>Qué es</th><th>Variables usadas</th><th>Cobertura</th><th>Uso en el sitio</th></tr></thead>
+        <tbody>
+          <tr><td><b>Censo Nacional de Población y Vivienda 2018</b> (DANE)</td><td>Microdatos del censo, consultados con el procesador estadístico REDATAM en línea del DANE.</td><td><code>P_EDAD</code> edad · <code>P_EDADR</code> grupo de edad · <code>P_NIVEL_ANOSR</code> nivel educativo más alto alcanzado · <code>PA1_DPTO_NAC</code> y <code>PA2_MPIO_NAC</code> departamento y municipio de nacimiento · <code>PA_LUG_NAC</code> si vive en su municipio de nacimiento · departamento y municipio de residencia</td><td>Todas las personas censadas en Colombia en 2018. Cohorte principal: 40 a 48 años (4,7 millones de personas).</td><td>Capítulos 1 y 4: logro educativo por origen, municipio y generación.</td></tr>
+          <tr><td><b>World Development Indicators</b> (Banco Mundial)</td><td>Series anuales descargadas de la API del Banco Mundial.</td><td>Crecimiento del PIB real · desempleo (estimación de la OIT) · tasas de cambio oficiales del peso y del bolívar frente al dólar</td><td>Colombia y Venezuela, 1980–2000 (desempleo desde 1991)</td><td>Línea de tiempo y capítulos 2, 3 y 5.</td></tr>
+          <tr><td><b>Tasa de cambio en la frontera</b> (Fedesarrollo, 1987)</td><td>Cuadro publicado en Barrera (1989), <i>Colombia Internacional</i>, Universidad de los Andes. Se transcribió a mano.</td><td>Pesos por dólar · pesos por bolívar · tasa de cambio real del peso frente al bolívar (1975 = 100)</td><td>1974–1986 (se usan 1980–1986)</td><td>Capítulo 2: la caída del bolívar, en pesos corrientes y en términos reales.</td></tr>
+          <tr><td><b>Informes de Coyuntura Económica Regional (ICER), Norte de Santander</b> (DANE y Banco de la República)</td><td>Informes regionales de 2000 y 2001.</td><td>Tasa de desempleo del área metropolitana de Cúcuta · área aprobada en licencias de construcción (II trimestre de 2000 y 2001)</td><td>Junio de 1998 a junio de 2001</td><td>Capítulo 5: el mercado laboral y la construcción en Cúcuta.</td></tr>
+          <tr><td><b>Fuentes históricas y prensa</b></td><td>Centro Nacional de Memoria Histórica (2018), informe sobre el Catatumbo; <i>El Tiempo</i> (26 de abril de 2000), con las cifras del DANE para 1999.</td><td>Presencia guerrillera y violencia en el Catatumbo · caída del PIB de la construcción y de la vivienda en 1999</td><td>Finales de los setenta a 1999</td><td>Capítulos 1 y 5.</td></tr>
+          <tr><td><b>Salario mínimo de 1993</b></td><td>Decreto 2061 de 1992.</td><td>Salario mínimo diario: 2.717 pesos (81.510 al mes)</td><td>1993</td><td>Capítulo 3: comparación con el ingreso de la venta ambulante.</td></tr>
+          <tr><td><b>Entrevista con mi papá</b></td><td>Entrevista semiestructurada grabada en noviembre de 2026, en dos partes, con una guía de seis bloques (San Calixto, llegada a Cúcuta, colegio y venta ambulante, universidad, primer empleo y familia). La grabación se transcribió con una herramienta automática y las citas se revisaron a mano.</td><td>Fechas, lugares, ocupaciones, ingresos, costos, decisiones y percepciones de la familia</td><td>1974–2001</td><td>Narrativa de todos los capítulos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="font-size:20px">Cómo se procesaron</h3>
+    <ol class="steps">
+      <li><b>Cohorte.</b> Mi papá nació en diciembre de 1974. En el censo de 2018, su generación tiene entre 40 y 48 años (nacidos aproximadamente entre 1970 y 1978). Para la gráfica de generaciones se usan grupos quinquenales de 25 a 74 años, convertidos a año de nacimiento.</li>
+      <li><b>Medida.</b> «Llegó a la universidad» significa que el nivel más alto alcanzado es universitario o posgrado. La variable recodificada del censo (<code>P_NIVEL_ANOSR</code>) no distingue si la persona terminó la carrera, así que la medida incluye a quienes la empezaron sin terminarla. Por eso es una cota superior: graduarse, como hizo mi papá, es aún menos frecuente. Los porcentajes se calculan sobre las personas que informaron su nivel educativo.</li>
+      <li><b>Catatumbo.</b> Se usó la definición amplia de la región, con 11 municipios de Norte de Santander: Ábrego, Convención, El Carmen, El Tarra, Hacarí, La Playa, Ocaña, San Calixto, Sardinata, Teorama y Tibú. (El programa de desarrollo con enfoque territorial del Catatumbo incluye 8 de ellos; no incluye Ábrego, La Playa ni Ocaña.) Los nacidos allí se dividen en quienes viven en su municipio de nacimiento («se quedaron»), quienes viven en otro municipio («migraron») y, dentro de estos, quienes viven en Cúcuta.</li>
+      <li><b>Tasa de cambio.</b> Para 1980–1986 se usa la serie de pesos por bolívar de Fedesarrollo (1987), que refleja el mercado de la frontera; desde 1983 son valores de fin de año. El mismo cuadro trae una tasa de cambio real (1975 = 100), que pasa de 84 en 1982 a 42 en 1983 y sirve para medir la caída real del bolívar. Para 1989–2000 se dividió la tasa oficial del peso entre la del bolívar (Banco Mundial); el Banco Mundial reporta el bolívar en unidades posteriores a la reconversión de 2008, así que se multiplicó por 1.000 para volver a bolívares de la época. Venezuela tuvo tasas múltiples (RECADI) entre febrero de 1983 y marzo de 1989; para 1987 y 1988 no hay una serie comparable, y en 1994–1995 la tasa oficial sobrevalora el bolívar por el control de cambios.</li>
+      <li><b>Desempleo.</b> La serie del Banco Mundial salta de 20,5 % en 2000 a 15,0 % en 2001, cuando el DANE cambió de encuesta, lo que sugiere un cambio de cobertura. Por eso se usa solo hasta 2000 y se complementa con las tasas semestrales de Cúcuta de los informes regionales.</li>
+      <li><b>Cuentas con la entrevista.</b> Para el ingreso de la venta ambulante se supone que trabajaba 26 días al mes y 312 al año. Es un supuesto para dar el orden de magnitud, no una medición.</li>
+      <li><b>Generaciones.</b> En la gráfica por año de nacimiento, los más jóvenes (nacidos después de 1990) pueden seguir estudiando, así que su porcentaje es un mínimo.</li>
+      <li><b>Herramientas.</b> Las tablas se exportaron de REDATAM y se limpiaron en Python (pandas). Las gráficas se dibujaron como SVG con código escrito para este proyecto. El código, los datos y las consultas están en <a id="repo-link" href="#datos">el repositorio del proyecto</a>.</li>
+    </ol>
+    <div class="note">
+      <b>Limitaciones</b>
+      <p>El censo de 2018 mide la educación alcanzada a los 40–48 años, no a los 25, e incluye estudios hechos tarde en la vida. No incluye a quienes murieron ni a quienes emigraron del país antes de 2018. La comparación entre migrantes y no migrantes es descriptiva: no permite saber si migrar causó más educación o si quienes migraron ya eran distintos. Las tasas de cambio oficiales no coinciden con las del mercado paralelo de la frontera. Se consideró usar el Registro Único de Víctimas, pero sus datos de los años ochenta subregistran mucho el desplazamiento, así que el desplazamiento se trata como contexto y no como objeto de medición.</p>
+      <p>La entrevista es una sola voz, contada desde la memoria más de 25 años después. Corrigió datos de la Entrega 1: la llegada a Cúcuta fue hacia 1984 (no 1986), el grado fue el 7 de diciembre de 2000 (no en 1999) y dos hermanos mayores también fueron a la universidad. Los años 1993 (venta ambulante) y 1994–2000 (universidad) son estimaciones. La transcripción automática registró el ingreso diario como «500, 600»; al revisarla, mi papá precisó que eran entre 1.500 y 2.000 pesos.</p>
+    </div>
+  </div></div>
+</section>
+
+<!-- REFERENCIAS -->
+<section id="refs">
+  <div class="chapter-body"><div class="in" style="border-top:3px solid var(--line)">
+    <div class="sec-head" style="padding-top:20px"><span class="label" style="color:var(--rojo)">Bibliografía y fuentes</span><h2>Referencias</h2></div>
+    <ol class="refs text">
+      <li>Banco Mundial. <a href="https://databank.worldbank.org/source/world-development-indicators">World Development Indicators</a>. Series NY.GDP.MKTP.KD.ZG, SL.UEM.TOTL.ZS y PA.NUS.FCRF. Consultado el 20 de noviembre de 2026.</li>
+      <li>Barrera, C. (1989). El «paquetazo» venezolano y la frontera colombiana. <i>Colombia Internacional</i>, Universidad de los Andes. <a href="https://revistas.uniandes.edu.co/index.php/colombia-int/article/download/2229/788/10674">Enlace</a>.</li>
+      <li>Caballero, C. (1987). <i>50 años de economía: de la crisis del treinta a la del ochenta.</i> Asobancaria.</li>
+      <li>Caballero, C., y Urrutia, M. (2006). Las crisis financieras del siglo XX. En <i>Historia del sector financiero colombiano en el siglo XX</i> (pp. 65–92).</li>
+      <li>Centro Nacional de Memoria Histórica, CNMH (2018). <i>Catatumbo: memorias de vida y dignidad. Resumen.</i> <a href="https://centrodememoriahistorica.gov.co/micrositios/catatumbo/descargas/catatumbo-resumen.pdf">Enlace</a>.</li>
+      <li>Congreso de la República de Colombia (1992). Ley 30 de 1992, por la cual se organiza el servicio público de la educación superior.</li>
+      <li>DANE (2018). <a href="https://systema59.dane.gov.co/bincol/RpWebEngine.exe/Portal?BASE=CNPVBASE4V2&amp;lang=esp">Censo Nacional de Población y Vivienda 2018, procesador REDATAM</a>. Consultado el 20 de noviembre de 2026.</li>
+      <li>DANE y Banco de la República (2000). <i>Informe de Coyuntura Económica Regional, Norte de Santander.</i> <a href="https://www.dane.gov.co/files/icer/2000/norte_santan/t2.pdf">Enlace</a>.</li>
+      <li>DANE y Banco de la República (2001). <i>Informe de Coyuntura Económica Regional, Norte de Santander.</i> <a href="https://www.dane.gov.co/files/icer/2001/norte_santan/t2.pdf">Enlace</a>.</li>
+      <li><i>El Tiempo</i> (26 de abril de 2000). Reducción en demanda precipitó caída del PIB. <a href="https://www.eltiempo.com/archivo/documento/MAM-1233926">Enlace</a>.</li>
+      <li>Entrevista con mi papá, realizada por el autor en noviembre de 2026.</li>
+      <li>Fedesarrollo (1987). <i>Algunos aspectos de la interacción macroeconómica de Colombia y Venezuela: el comercio registrado y no registrado.</i> Cuadro 11, citado en Barrera (1989).</li>
+      <li>Jaramillo-Echeverri, J., Meisel-Roca, A., y Ramírez-Giraldo, M. T. (2019). More than 100 years of improvements in living standards: The case of Colombia. <i>Cliometrica</i>, 13(3), 323–366.</li>
+      <li>Junguito, R. (2016). La economía colombiana en los años noventa. En <i>Historia económica de Colombia en el siglo XX</i>. Universidad Sergio Arboleda.</li>
+      <li>Ocampo, J. A. (2023). Una historia de las crisis económicas de Colombia. En <i>Ensayos de historia económica: cien años del Banco de la República</i> (cap. 1, pp. 15–28).</li>
+      <li>Presidencia de la República de Colombia (1992). Decreto 2061 de 1992, por el cual se fija el salario mínimo legal para 1993.</li>
+      <li>Safford, F., y Palacios, M. (2002). <i>Colombia: país fragmentado, sociedad dividida.</i> Editorial Norma.</li>
+      <li>Urrutia, M., y Llano, J. (2012). <i>Los actores en la crisis económica de fin de siglo.</i> Ediciones Uniandes.</li>
+    </ol>
+    <div class="note">
+      <b>Nota sobre el uso de inteligencia artificial</b>
+      <p>Para este trabajo usé una herramienta de inteligencia artificial generativa (Claude, de Anthropic) como apoyo para relacionar las lecturas del curso con el tema, preparar la guía de entrevista, buscar fuentes, escribir el código de consulta y procesamiento de los datos, redactar borradores del texto y construir el diseño del sitio. La transcripción de la entrevista se hizo con una herramienta automática. La historia familiar, la entrevista, las decisiones sobre la pregunta y el enfoque, y la interpretación final son mías. Revisé y verifiqué los datos, el código y el texto, y asumo la responsabilidad por su contenido.</p>
+    </div>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  try{
+    var h=location.hostname, a=document.getElementById('repo-link');
+    if(a && /\.github\.io$/.test(h)){
+      var user=h.split('.')[0], repo=location.pathname.split('/').filter(Boolean)[0]||(user+'.github.io');
+      var url='https://github.com/'+user+'/'+repo;
+      a.href=url; a.textContent='github.com/'+user+'/'+repo;
+    }
+  }catch(e){}
+})();
+</script>
+<footer><div class="in"><span>Juan Pablo Coronel Villamizar</span><span>Historia Económica de Colombia · Universidad de los Andes, 2026</span></div></footer>
+
+</body>
+</html>

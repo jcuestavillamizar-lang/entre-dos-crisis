@@ -1,0 +1,20 @@
+# CNPV 2018 (DANE, REDATAM). Universo: 40-48 años nacidos en 11 municipios del Catatumbo (Ábrego, Convención, El Carmen, El Tarra, Hacarí, La Playa, Ocaña, San Calixto, Sardinata, Teorama, Tibú). Consultado 2026-11-20.
+## T1: lugar de nacimiento respecto al municipio de residencia actual x nivel educativo
+grupo | Preescolar | Básica primaria | Básica secundaria | Media academica o clasica | Media tecnica | Normalista | Técnica profesional o Tecnológica | Universitario | Especialización, maestría, doctorado | Ninguno | No informa | Total
+Se quedó (vive en su mpio de nacimiento) | 13 | 8 397 | 1 482 | 3 088 | 158 | 141 | 754 | 1 066 | 498 | 2 679 | 58 | 18 334
+Migró (vive en otro mpio) | 17 | 11 948 | 2 719 | 5 254 | 376 | 98 | 1 580 | 2 167 | 1 238 | 2 935 | 80 | 28 412
+Total | 30 | 20 345 | 4 201 | 8 342 | 534 | 239 | 2 334 | 3 233 | 1 736 | 5 614 | 138 | 46 746
+## T2: municipio de nacimiento x nivel educativo
+54003_ÁBREGO | 9 | 2 905 | 376 | 745 | 40 | 13 | 202 | 259 | 150 | 878 | 10 | 5 587
+54206_CONVENCIÓN | 3 | 1 725 | 383 | 784 | 55 | 39 | 190 | 284 | 224 | 546 | 15 | 4 248
+54245_EL CARMEN | 2 | 1 559 | 245 | 516 | 37 | 16 | 147 | 140 | 82 | 591 | 14 | 3 349
+54250_EL TARRA | 1 | 753 | 95 | 134 | 10 | 4 | 21 | 29 | 11 | 260 | 6 | 1 324
+54344_HACARÍ | 1 | 966 | 117 | 187 | 11 | 14 | 39 | 44 | 22 | 369 | 5 | 1 775
+54398_LA PLAYA | 3 | 1 086 | 124 | 292 | 16 | 5 | 73 | 62 | 37 | 387 | 4 | 2 089
+54498_OCAÑA | 3 | 4 199 | 1 333 | 3 281 | 194 | 62 | 1 022 | 1 739 | 834 | 918 | 37 | 13 622
+54670_SAN CALIXTO | 0 | 1 001 | 158 | 256 | 17 | 11 | 77 | 75 | 58 | 348 | 5 | 2 006
+54720_SARDINATA | 1 | 2 408 | 481 | 755 | 48 | 19 | 226 | 215 | 143 | 412 | 5 | 4 713
+54800_TEORAMA | 2 | 1 082 | 187 | 294 | 17 | 17 | 76 | 91 | 50 | 342 | 5 | 2 163
+54810_TIBÚ | 5 | 2 661 | 702 | 1 098 | 89 | 39 | 261 | 295 | 125 | 563 | 32 | 5 870
+## T3: nacidos en el Catatumbo (11 mpios) que residen en Cúcuta, 40-48 años
+Catatumbo -> Cúcuta | 6 | 3 823 | 1 146 | 1 670 | 135 | 16 | 415 | 534 | 288 | 584 | 25 | 8 642

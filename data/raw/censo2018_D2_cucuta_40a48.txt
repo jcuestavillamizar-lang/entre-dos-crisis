@@ -1,0 +1,7 @@
+# CNPV 2018. Universo: 40-48 años residentes en Cúcuta (54001).
+## T1: lugar de nacimiento x nivel educativo
+grupo | Preescolar | Básica primaria | Básica secundaria | Media academica o clasica | Media tecnica | Normalista | Técnica profesional o Tecnológica | Universitario | Especialización, maestría, doctorado | Ninguno | No informa | Total
+Nacido en Cúcuta | 9 | 8 991 | 5 818 | 10 389 | 1 019 | 63 | 2 641 | 3 802 | 1 381 | 914 | 126 | 35 153
+Nacido en otro mpio colombiano | 9 | 11 055 | 4 125 | 6 857 | 600 | 61 | 1 802 | 2 450 | 1 163 | 1 279 | 97 | 29 498
+Nacido en otro país | 4 | 643 | 917 | 1 150 | 59 | 7 | 229 | 520 | 69 | 104 | 15 | 3 717
+Total | 22 | 20 690 | 10 861 | 18 403 | 1 679 | 131 | 4 683 | 6 777 | 2 622 | 2 301 | 929 | 69 098

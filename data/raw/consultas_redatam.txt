@@ -1,0 +1,43 @@
+Consultas al Censo Nacional de Población y Vivienda 2018 (DANE)
+Procesador estadístico REDATAM en línea, base CNPVBASE4V2:
+https://systema59.dane.gov.co/bincol/RpWebEngine.exe/Portal?BASE=CNPVBASE4V2&lang=esp
+Fecha de consulta: 20 de noviembre de 2026. Cada bloque es un programa REDATAM+SP ejecutado tal cual.
+Municipios del Catatumbo (código DIVIPOLA): 54003 Ábrego, 54206 Convención, 54245 El Carmen, 54250 El Tarra,
+54344 Hacarí, 54398 La Playa, 54498 Ocaña, 54670 San Calixto, 54720 Sardinata, 54800 Teorama, 54810 Tibú.
+
+--- A: cohorte 40-48 años por departamento de nacimiento (censo2018_A_dptonac_x_nivel_40a48.txt)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 40 AND Personas.P_EDAD <= 48
+TABLE T1 AS CROSSTABS OF Personas.PA1_DPTO_NAC BY Personas.P_NIVEL_ANOSR
+
+--- D1: nacidos en el Catatumbo, 40-48 años (censo2018_D1_catatumbo_40a48.txt, T1 y T2)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 40 AND Personas.P_EDAD <= 48 AND (Personas.PA2_MPIO_NAC = 54003 OR Personas.PA2_MPIO_NAC = 54206 OR Personas.PA2_MPIO_NAC = 54245 OR Personas.PA2_MPIO_NAC = 54250 OR Personas.PA2_MPIO_NAC = 54344 OR Personas.PA2_MPIO_NAC = 54398 OR Personas.PA2_MPIO_NAC = 54498 OR Personas.PA2_MPIO_NAC = 54670 OR Personas.PA2_MPIO_NAC = 54720 OR Personas.PA2_MPIO_NAC = 54800 OR Personas.PA2_MPIO_NAC = 54810)
+TABLE T1 AS CROSSTABS OF Personas.PA_LUG_NAC BY Personas.P_NIVEL_ANOSR
+TABLE T2 AS CROSSTABS OF Personas.PA2_MPIO_NAC BY Personas.P_NIVEL_ANOSR
+
+--- D2: residentes en Cúcuta, 40-48 años (censo2018_D2_cucuta_40a48.txt)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 40 AND Personas.P_EDAD <= 48 AND Dpto.U_DPTO1 = 54 AND Mupio.U_MPIO1 = 1
+TABLE T1 AS CROSSTABS OF Personas.PA_LUG_NAC BY Personas.P_NIVEL_ANOSR
+
+--- D3: nacidos en el Catatumbo que residen en Cúcuta, 40-48 años (censo2018_D1_catatumbo_40a48.txt, T3)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 40 AND Personas.P_EDAD <= 48 AND Dpto.U_DPTO1 = 54 AND Mupio.U_MPIO1 = 1 AND (mismos 11 municipios de nacimiento que en D1)
+TABLE T1 AS FREQUENCY OF Personas.P_NIVEL_ANOSR
+
+--- B1: grupos de edad 25-74, todo el país (censo2018_B1_nacional_edad_x_nivel.txt)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 25 AND Personas.P_EDAD <= 74
+TABLE T1 AS CROSSTABS OF Personas.P_EDADR BY Personas.P_NIVEL_ANOSR
+
+--- B2: grupos de edad 25-74, nacidos en Norte de Santander (censo2018_B2_nortesantander_edad_x_nivel.txt)
+RUNDEF Job
+ SELECTION ALL
+ UNIVERSE Personas.P_EDAD >= 25 AND Personas.P_EDAD <= 74 AND Personas.PA1_DPTO_NAC = 54
+TABLE T1 AS CROSSTABS OF Personas.P_EDADR BY Personas.P_NIVEL_ANOSR

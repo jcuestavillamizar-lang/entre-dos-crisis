@@ -1,0 +1,11 @@
+# Tasa de desempleo, área metropolitana de Cúcuta (%), por semestres.
+# Fuente: DANE y Banco de la República, Informe de Coyuntura Económica Regional (ICER) Norte de Santander 2000,
+# sección 1.2 "Empleo", tabla "Area Metropolitana de Cúcuta. Población total urbana en edad de trabajar y demás
+# indicadores del mercado laboral, por intervalos semestrales. junio 1998 - 2000". Junio 2000 es provisional.
+# https://www.dane.gov.co/files/icer/2000/norte_santan/t2.pdf
+periodo,anio_decimal,desempleo
+jun-1998,1998.5,13.7
+dic-1998,1999.0,15.4
+jun-1999,1999.5,18.7
+dic-1999,2000.0,14.4
+jun-2000,2000.5,19.9

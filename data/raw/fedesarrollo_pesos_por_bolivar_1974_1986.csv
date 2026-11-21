@@ -1,0 +1,19 @@
+# Tasa de cambio del peso frente al bolívar (pesos por bolívar), 1974-1986.
+# Fuente: Fedesarrollo (1987), "Algunos aspectos de la interacción macroeconómica de Colombia y Venezuela:
+# el comercio registrado y no registrado", Cuadro No. 11; reproducido en Barrera, C. (1989),
+# "El 'paquetazo' venezolano y la frontera colombiana", Colombia Internacional (Universidad de los Andes), Cuadro No. 6.
+# Nota: la columna pesos por dólar coincide con promedios anuales hasta 1982 y con valores de fin de año en 1983-1986.
+anio,cop_por_usd,cop_por_bolivar,tcr_peso_1975_100
+1974,26.66,6.21,91
+1975,31.58,7.38,100
+1976,35.21,8.20,94
+1977,37.20,8.67,83
+1978,39.10,9.11,80
+1979,42.55,9.91,80
+1980,47.28,10.34,80
+1981,54.49,11.99,83
+1982,64.03,14.11,84
+1983,88.79,7.77,42
+1984,113.89,8.76,48
+1985,172.20,7.08,
+1986,219.78,5.69,
